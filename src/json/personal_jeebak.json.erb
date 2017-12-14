@@ -881,7 +881,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-t to Hyper-t %>
+                <%# Tab-t to (repeatable) tab %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -889,7 +889,7 @@
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ],
                     "from": <%= from("t", [], ["caps_lock"]) %>,
-                    "to": <%= to([["t", ["left_command", "left_control", "left_option", "left_shift"]]]) %>,
+                    "to": <%= to([["tab"]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ]
@@ -1301,7 +1301,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-, to "???"] %>
+                <%# Tab-, to ⌘⌥⌃-,] %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -1309,16 +1309,14 @@
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ],
                     "from": <%= from("comma", [], ["caps_lock"]) %>,
-                    "to": [
-                        { "shell_command": "osascript -e 'display notification \"Tab-,\" with title \"Triggered:\"'" }
-                    ],
+                    "to": <%= to([["comma", ["left_command", "left_control", "left_option"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ]
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-. to "???"] %>
+                <%# Tab-. to ⌘⌥⌃-.] %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -1326,16 +1324,14 @@
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ],
                     "from": <%= from("period", [], ["caps_lock"]) %>,
-                    "to": [
-                        { "shell_command": "osascript -e 'display notification \"Tab-.\" with title \"Triggered:\"'" }
-                    ],
+                    "to": <%= to([["period", ["left_command", "left_control", "left_option"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ]
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-/ to "???"] %>
+                <%# Tab-/ to ⌘⌥⌃-/] %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -1343,9 +1339,7 @@
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ],
                     "from": <%= from("slash", [], ["caps_lock"]) %>,
-                    "to": [
-                        { "shell_command": "osascript -e 'display notification \"Tab-/\" with title \"Triggered:\"'" }
-                    ],
+                    "to": <%= to([["slash", ["left_command", "left_control", "left_option"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ]

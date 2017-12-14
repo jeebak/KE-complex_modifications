@@ -2208,13 +2208,7 @@
           },
           "to": [
             {
-              "key_code": "t",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option",
-                "left_shift"
-              ]
+              "key_code": "tab"
             }
           ]
         },
@@ -3020,7 +3014,12 @@
           },
           "to": [
             {
-              "shell_command": "osascript -e 'display notification \"Tab-,\" with title \"Triggered:\"'"
+              "key_code": "comma",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
             }
           ]
         },
@@ -3043,7 +3042,12 @@
           },
           "to": [
             {
-              "shell_command": "osascript -e 'display notification \"Tab-.\" with title \"Triggered:\"'"
+              "key_code": "period",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
             }
           ]
         },
@@ -3066,7 +3070,12 @@
           },
           "to": [
             {
-              "shell_command": "osascript -e 'display notification \"Tab-/\" with title \"Triggered:\"'"
+              "key_code": "slash",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
             }
           ]
         }
