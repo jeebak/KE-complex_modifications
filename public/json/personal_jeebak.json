@@ -455,29 +455,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "spacebar",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "caps_lock",
-                "option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "spacebar",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "a",
             "modifiers": {
               "optional": [
@@ -1278,7 +1255,12 @@
               "value": 1
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "TouchCursor Extended Mode [Misc Personalizations {;,',/}, Media Keys]",
+      "manipulators": [
         {
           "type": "basic",
           "from": {

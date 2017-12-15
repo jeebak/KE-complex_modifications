@@ -162,12 +162,6 @@
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
                 },
-                <%# ... and left_shift-spacebar too %>
-                {
-                    "type": "basic",
-                    "from": <%= from("spacebar", ["left_shift"], ["caps_lock", "option"]) %>,
-                    "to": <%= to([["spacebar", ["left_option"]]]) %>
-                },
 
                 <%# -------------------------------------------------- %>
                 <%# Space-{a,e,r} to {⌥-any,⌘-any,⇧-any} %>
@@ -441,7 +435,12 @@
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
-                },
+                }
+            ]
+        },
+        {
+            "description": "TouchCursor Extended Mode [Misc Personalizations {;,',/}, Media Keys]",
+            "manipulators": [
 
                 <%# -------------------------------------------------- %>
                 <%# Misc Personalizations {;,',/} %>
