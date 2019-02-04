@@ -446,7 +446,7 @@
                 <%# Misc Personalizations {;,',/} %>
                 <%# Space-; to ⌘-⌃-; [custom shortcut to: Move left a space] %>
                 <%# Space-' to ⌘-⌃-' [custom shortcut to: Move right a space] %>
-                <%# Space-/ to ⌘--/ [custom shortcut to: Toggle iTerm maximized] %>
+                <%# Space-/ to ⌘-/ [custom shortcut to: Toggle Show/Hide iTerm windows] %>
                 <%# Space-right_shift to ⌘-⌃--/ [custom shortcut to: Application windows] %>
                 <%# -------------------------------------------------- %>
                 {
@@ -468,9 +468,7 @@
                 {
                     "type": "basic",
                     "from": <%= from("slash", [], ["caps_lock"]) %>,
-                    "to": [
-                        { "shell_command": "~/.zgen/jeebak/devtools-master/bin/maccomplice togg_app iTerm2" }
-                    ],
+                    "to": <%= to([["slash", ["left_command"]]]) %>,
                     "conditions": [
                         { "type": "variable_if", "name": "touchcursor_extended_mode", "value": 1 }
                     ]
