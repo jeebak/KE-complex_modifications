@@ -2028,6 +2028,38 @@
           "type": "basic",
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.jetbrains\\."
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "tab_modifier",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f8",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
               "type": "variable_if",
               "name": "tab_modifier",
               "value": 1
@@ -2057,6 +2089,38 @@
           "type": "basic",
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.jetbrains\\."
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "tab_modifier",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f7",
+              "modifiers": [
+                "fn"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
               "type": "variable_if",
               "name": "tab_modifier",
               "value": 1
@@ -2076,6 +2140,40 @@
               "modifiers": [
                 "left_command",
                 "left_control",
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.jetbrains\\."
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "tab_modifier",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "f7",
+              "modifiers": [
+                "fn",
                 "left_option",
                 "left_shift"
               ]
@@ -2117,8 +2215,7 @@
             {
               "type": "frontmost_application_if",
               "bundle_identifiers": [
-                "^com\\.jetbrains\\.PhpStorm$",
-                "^com\\.jetbrains\\.WebStorm$"
+                "^com\\.jetbrains\\."
               ]
             },
             {
@@ -2137,10 +2234,11 @@
           },
           "to": [
             {
-              "key_code": "r",
+              "key_code": "f12",
               "modifiers": [
+                "fn",
                 "left_command",
-                "left_option"
+                "left_shift"
               ]
             }
           ]
@@ -2483,6 +2581,39 @@
                 "left_control",
                 "left_option",
                 "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.jetbrains\\."
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "tab_modifier",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "r",
+              "modifiers": [
+                "left_command",
+                "left_option"
               ]
             }
           ]
@@ -3055,12 +3186,7 @@
           },
           "to": [
             {
-              "key_code": "slash",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option"
-              ]
+              "shell_command": "~/.local/bin/karabiner-togg_app.bash ide"
             }
           ]
         }

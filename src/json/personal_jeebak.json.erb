@@ -800,8 +800,25 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-q to Hyper-q %>
+                <%# Tab-q to F8 in JetBrains Debugger (used to "Step Over",) Hyper-q otherwise %>
                 <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("q", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f8", ["fn"]]]) %>,
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.jetbrains\\."
+                            ]
+                        },
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
                 {
                     "type": "basic",
                     "conditions": [
@@ -815,8 +832,25 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-w to Hyper-w %>
+                <%# Tab-w to F7 in JetBrains Debugger (used to "Step Into",) Hyper-w otherwise %>
                 <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("w", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f7", ["fn"]]]) %>,
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.jetbrains\\."
+                            ]
+                        },
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
                 {
                     "type": "basic",
                     "conditions": [
@@ -830,8 +864,25 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-e to Hyper-e %>
+                <%# Tab-e to ⌥⇧-F7 in JetBrains Debugger (used to "Step Into My Code",) Hyper-e otherwise %>
                 <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("e", [], ["caps_lock"]) %>,
+                    "to": <%= to([["f7", ["fn", "left_option", "left_shift"]]]) %>,
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.jetbrains\\."
+                            ]
+                        },
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
                 {
                     "type": "basic",
                     "conditions": [
@@ -845,7 +896,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-r to ⌥-⌘-r [Used to "Resume Program" in JetBrains Debugger, Hyper-r otherwise] %>
+                <%# Tab-r to ⇧⌘-r in JetBrains Debugger (used to "Hide All Tool Windows",) Hyper-r otherwise %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -853,13 +904,12 @@
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ],
                     "from": <%= from("r", [], ["caps_lock"]) %>,
-                    "to": <%= to([["r", ["left_command", "left_option"]]]) %>,
+                    "to": <%= to([["f12", ["fn", "left_command", "left_shift"]]]) %>,
                     "conditions": [
                         {
                             "type": "frontmost_application_if",
                             "bundle_identifiers": [
-                                "^com\\.jetbrains\\.PhpStorm$",
-                                "^com\\.jetbrains\\.WebStorm$"
+                                "^com\\.jetbrains\\."
                             ]
                         },
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
@@ -1043,8 +1093,25 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-d to Hyper-d %>
+                <%# Tab-d to ⌥⌘-r in JetBrains Debugger (used to "Resume Program",) Hyper-e otherwise %>
                 <%# -------------------------------------------------- %>
+                {
+                    "type": "basic",
+                    "conditions": [
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ],
+                    "from": <%= from("d", [], ["caps_lock"]) %>,
+                    "to": <%= to([["r", ["left_command", "left_option"]]]) %>,
+                    "conditions": [
+                        {
+                            "type": "frontmost_application_if",
+                            "bundle_identifiers": [
+                                "^com\\.jetbrains\\."
+                            ]
+                        },
+                        { "type": "variable_if", "name": "tab_modifier", "value": 1 }
+                    ]
+                },
                 {
                     "type": "basic",
                     "conditions": [
@@ -1298,7 +1365,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-, to ⌘⌥⌃-,] %>
+                <%# Tab-, to Hyper-, %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -1313,7 +1380,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-. to ⌘⌥⌃-.] %>
+                <%# Tab-. to Hyper-. %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -1328,7 +1395,7 @@
                 },
 
                 <%# -------------------------------------------------- %>
-                <%# Tab-/ to ⌘⌥⌃-/] %>
+                <%# Tab-/ to toggle ide app hidden/visible %>
                 <%# -------------------------------------------------- %>
                 {
                     "type": "basic",
@@ -1336,7 +1403,9 @@
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ],
                     "from": <%= from("slash", [], ["caps_lock"]) %>,
-                    "to": <%= to([["slash", ["left_command", "left_control", "left_option"]]]) %>,
+                    "to": [
+                        { "shell_command": "~/.local/bin/karabiner-togg_app.bash ide" }
+                    ],
                     "conditions": [
                         { "type": "variable_if", "name": "tab_modifier", "value": 1 }
                     ]
