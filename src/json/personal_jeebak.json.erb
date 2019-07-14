@@ -17,6 +17,9 @@
                     "to": [
                         { "set_variable": { "name": "touchcursor_extended_mode", "value": 1 } }
                     ],
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
+                    ],
                     "to_if_alone": <%= to([["spacebar"]]) %>,
                     "to_after_key_up": [
                         { "set_variable": { "name": "touchcursor_extended_mode", "value": 0 } }
@@ -337,6 +340,7 @@
         {
             "description": "TouchCursor Extended Mode [Space-{1-0,-,=} to {F1-F10,F11,F12}]",
             "manipulators": [
+
                 <%# -------------------------------------------------- %>
                 <%# Space-{1-0,-,=} to {F1-F10,F11,F12} %>
                 <%# -------------------------------------------------- %>
@@ -597,6 +601,9 @@
                     "from": <%= from("tab", [], ["caps_lock"]) %>,
                     "to": [
                         { "set_variable": { "name": "tab_modifier", "value": 1 } }
+                    ],
+                    "conditions": [
+                        <%= frontmost_application_unless(["remote_desktop", "virtual_machine"]) %>
                     ],
                     "to_if_alone": <%= to([["tab"]]) %>,
                     "to_after_key_up": [
@@ -1680,6 +1687,18 @@
                     "to_if_alone": <%= to([["quote"]]) %>
                 }
             ]
+        },
+        {
+            <%# Based on: src/json/virtual_machine.json.erb %>
+
+            "description": "Swap left command and option in virtual machine/remote desktop",
+            "manipulators": <%= each_key(
+                source_keys_list: ['left_option', 'left_command'],
+                dest_keys_list: ['left_command', 'left_option'],
+                from_optional_modifiers: ['any'],
+                conditions: [JSON.parse(frontmost_application_if(['remote_desktop', 'virtual_machine', 'vnc']))],
+                as_json: true
+            ) %>
         }
     ]
 }
