@@ -1,5 +1,8 @@
 {
   "title": "Personal rules (@jeebak)",
+  "maintainers": [
+    "jeebak"
+  ],
   "rules": [
     {
       "description": "TouchCursor Extended Mode [Space as Trigger Key]",
@@ -493,14 +496,6 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_option"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "a",
@@ -509,6 +504,15 @@
               ]
             }
           ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          },
           "conditions": [
             {
               "type": "variable_if",
@@ -527,14 +531,6 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_command"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "n",
@@ -543,6 +539,15 @@
               ]
             }
           ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          },
           "conditions": [
             {
               "type": "variable_if",
@@ -561,14 +566,6 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_shift"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "r",
@@ -577,6 +574,15 @@
               ]
             }
           ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          },
           "conditions": [
             {
               "type": "variable_if",
@@ -2138,69 +2144,6 @@
           "type": "basic",
           "conditions": [
             {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.jetbrains\\.PhpStorm$",
-                "^com\\.jetbrains\\.WebStorm$"
-              ]
-            },
-            {
-              "type": "variable_if",
-              "name": "tab_modifier",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "r",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "r",
-              "modifiers": [
-                "left_command",
-                "left_option"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "tab_modifier",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "r",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "r",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option",
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
               "type": "variable_if",
               "name": "tab_modifier",
               "value": 1
@@ -3013,6 +2956,69 @@
           "type": "basic",
           "conditions": [
             {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com\\.jetbrains\\.PhpStorm$",
+                "^com\\.jetbrains\\.WebStorm$"
+              ]
+            },
+            {
+              "type": "variable_if",
+              "name": "tab_modifier",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "r",
+              "modifiers": [
+                "left_command",
+                "left_option"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "tab_modifier",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "r",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option",
+                "left_shift"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
               "type": "variable_if",
               "name": "tab_modifier",
               "value": 1
@@ -3112,56 +3118,6 @@
                 "name": "mousecursor_mode",
                 "value": 0
               }
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "a",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "speed_multiplier": 2
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "f",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "mouse_key": {
-                "speed_multiplier": 0.3
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "mousecursor_mode",
-              "value": 1
             }
           ]
         },
@@ -3354,6 +3310,56 @@
             {
               "mouse_key": {
                 "horizontal_wheel": 64
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "speed_multiplier": 2
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "mousecursor_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "mouse_key": {
+                "speed_multiplier": 0.3
               }
             }
           ],
@@ -3587,19 +3593,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_option"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "1"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3611,19 +3618,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_option"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "2"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3635,19 +3643,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_option"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "3"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3659,19 +3668,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_command"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "4"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3683,19 +3693,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_command"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "5"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3707,19 +3718,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_command"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "6"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3731,19 +3743,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_command"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "7"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3755,19 +3768,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_command"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "8"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3779,19 +3793,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_command"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "9"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3803,19 +3818,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_option"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "0"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3827,19 +3843,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_option"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "hyphen"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3851,19 +3868,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_option"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "equal_sign"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         }
       ]
     },
@@ -3880,19 +3898,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_command"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "semicolon"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         },
         {
           "type": "basic",
@@ -3904,19 +3923,20 @@
               ]
             }
           },
-          "to": [
-            {
-              "key_code": "vk_none"
-            },
-            {
-              "key_code": "left_option"
-            }
-          ],
           "to_if_alone": [
             {
               "key_code": "quote"
             }
-          ]
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 0
+          }
         }
       ]
     }
