@@ -26,6 +26,12 @@ function main() {
                 type: 'basic',
                 from: { key_code: 'spacebar', modifiers: { optional: ['caps_lock'] } },
                 to: [{ set_variable: { name: 'jb_touchcursor_extended_mode', value: 1 } }],
+                conditions: [
+                  {
+                    type: 'frontmost_application_unless',
+                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
+                  },
+                ],
                 to_if_alone: [{ key_code: 'spacebar' }],
                 to_after_key_up: [{ set_variable: { name: 'jb_touchcursor_extended_mode', value: 0 } }],
               },
@@ -246,6 +252,12 @@ function main() {
                 type: 'basic',
                 from: { key_code: 'tab', modifiers: { optional: ['caps_lock'] } },
                 to: [{ set_variable: { name: 'jb_tab_mode', value: 1 } }],
+                conditions: [
+                  {
+                    type: 'frontmost_application_unless',
+                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
+                  },
+                ],
                 to_if_alone: [{ key_code: 'tab' }],
                 to_after_key_up: [{ set_variable: { name: 'jb_tab_mode', value: 0 } }],
               },
@@ -371,6 +383,11 @@ function main() {
               tapHold('quote', 'left_option'),
             ],
           },
+          {
+            // Based on: src/json/virtual_machine.json.js
+            description: 'Swap left command and option in virtual machine/remote desktop',
+            manipulators: swapKeysInVM('left_option', 'left_command'),
+          },
         ],
       },
       null,
@@ -450,6 +467,26 @@ function tapHold(fromKeyCode, holdKeyCode) {
       'basic.to_if_held_down_threshold_milliseconds': 0,
     },
   }
+}
+
+//
+// Swap left command and option in virtual machine/remote desktop helper
+//
+function swapKeysInVM(keyA, keyB) {
+  const conditions = [
+    {
+      type: 'frontmost_application_if',
+      bundle_identifiers: [].concat(
+        karabiner.bundleIdentifiers.remoteDesktop,
+        karabiner.bundleIdentifiers.virtualMachine,
+        karabiner.bundleIdentifiers.vnc
+      ),
+    },
+  ]
+  return [
+    { type: 'basic', from: { key_code: keyA, modifiers: { optional: ['any'] } }, to: [{ key_code: keyB }], conditions: conditions },
+    { type: 'basic', from: { key_code: keyB, modifiers: { optional: ['any'] } }, to: [{ key_code: keyA }], conditions: conditions },
+  ]
 }
 
 main()
