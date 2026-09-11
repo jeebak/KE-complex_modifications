@@ -72,20 +72,6 @@ function main() {
               touchCursorKey('n', [{ key_code: 'page_down' }]),
 
               //
-              // Space-left_shift to ⌥-spacebar (Alfred)
-              //
-
-              touchCursorKey('left_shift', [{ key_code: 'spacebar', modifiers: ['left_option'] }], {
-                modifiers: { optional: ['caps_lock'] },
-              }),
-              // ... and left_shift-spacebar too
-              {
-                type: 'basic',
-                from: { key_code: 'spacebar', modifiers: { mandatory: ['left_shift'], optional: ['caps_lock', 'option'] } },
-                to: [{ key_code: 'spacebar', modifiers: ['left_option'] }],
-              },
-
-              //
               // Space-{a,e,r} to {⌥-any,⌘-any,⇧-any}
               // Space-a to ⌘-a, if alone
               // Space-e to ⌘-n, if alone
@@ -165,51 +151,58 @@ function main() {
           },
           {
             description: 'TouchCursor Extended Mode [Space-{1-0,-,=} to {F1-F10,F11,F12}]',
-            manipulators: [].concat(
-              //
-              // Space-{1-0,-,=} to {F1-F10,F11,F12}
-              //
-              [
-                { from: '1', to: 'f1' },
-                { from: '2', to: 'f2' },
-                { from: '3', to: 'f3' },
-                { from: '4', to: 'f4' },
-                { from: '5', to: 'f5' },
-                { from: '6', to: 'f6' },
-                { from: '7', to: 'f7' },
-                { from: '8', to: 'f8' },
-                { from: '9', to: 'f9' },
-                { from: '0', to: 'f10' },
-                { from: 'hyphen', to: 'f11' },
-                { from: 'equal_sign', to: 'f12' },
-              ].map(function (m) {
-                return touchCursorKey(m.from, [{ key_code: m.to, modifiers: ['fn'] }], { modifiers: { optional: ['caps_lock'] } })
-              }),
-
+            // Space-{1-0,-,=} to {F1-F10,F11,F12}
+            manipulators: [
+              { from: '1', to: 'f1' },
+              { from: '2', to: 'f2' },
+              { from: '3', to: 'f3' },
+              { from: '4', to: 'f4' },
+              { from: '5', to: 'f5' },
+              { from: '6', to: 'f6' },
+              { from: '7', to: 'f7' },
+              { from: '8', to: 'f8' },
+              { from: '9', to: 'f9' },
+              { from: '0', to: 'f10' },
+              { from: 'hyphen', to: 'f11' },
+              { from: 'equal_sign', to: 'f12' },
+            ].map(function (m) {
+              return touchCursorKey(m.from, [{ key_code: m.to, modifiers: ['fn'] }], { modifiers: { optional: ['caps_lock'] } })
+            }),
+          },
+          {
+            description: 'TouchCursor Extended Mode [Misc Personalizations {;,\',/}, Media Keys]',
+            manipulators: [
               //
               // Misc Personalizations {;,',/}
-              // Space-; to ⌘-⌃-; [custom shortcut to: Move left a space]
-              // Space-' to ⌘-⌃-' [custom shortcut to: Move right a space]
-              // Space-/ to ⌘--/ [custom shortcut to: Toggle iTerm maximized]
-              // Space-right_shift to ⌘-⌃--/ [custom shortcut to: Application windows]
+              // Space-; to ⌃-←; [custom shortcut to: Move left a space]
+              // Space-' to ⌃-→' [custom shortcut to: Move right a space]
+              // Space-/ to ⌘-/ [custom shortcut to: Toggle Show/Hide terminal app windows]
+              // Space-right_shift to ⌃-↓ [custom shortcut to: Application windows]
               //
-              touchCursorKey('semicolon', [{ key_code: 'semicolon', modifiers: ['left_command', 'left_control'] }], {
+              touchCursorKey('semicolon', [{ key_code: 'left_arrow', modifiers: ['left_control'] }], {
                 modifiers: { optional: ['caps_lock'] },
               }),
-              touchCursorKey('quote', [{ key_code: 'quote', modifiers: ['left_command', 'left_control'] }], {
+              touchCursorKey('quote', [{ key_code: 'right_arrow', modifiers: ['left_control'] }], {
                 modifiers: { optional: ['caps_lock'] },
               }),
-              touchCursorKey('slash', [{ shell_command: '~/.zgen/jeebak/devtools-master/bin/maccomplice togg_app iTerm2' }], {
+              touchCursorKey('slash', [{ key_code: 'slash', modifiers: ['left_command'] }], {
                 modifiers: { optional: ['caps_lock'] },
               }),
-              touchCursorKey('right_shift', [{ key_code: 'slash', modifiers: ['left_command', 'left_control'] }], {
+              touchCursorKey('right_shift', [{ key_code: 'down_arrow', modifiers: ['left_control'] }], {
                 modifiers: { optional: ['caps_lock'] },
               }),
 
               //
-              // Space-↩ to mission_control
+              // Space-↩ to mission_control [default shortcut is: ⌃-↑]
               //
               touchCursorKey('return_or_enter', [{ key_code: 'mission_control' }], { modifiers: { optional: ['caps_lock'] } }),
+
+              //
+              // Space-left_shift to ⌥-spacebar (Alfred)
+              //
+              touchCursorKey('left_shift', [{ key_code: 'spacebar', modifiers: ['left_option'] }], {
+                modifiers: { optional: ['caps_lock'] },
+              }),
 
               //
               // Media keys
@@ -240,12 +233,8 @@ function main() {
                 'non_us_backslash',
                 [{ key_code: 'spacebar' }, { key_code: 'non_us_backslash' }, { key_code: 'vk_none' }],
                 { modifiers: { optional: ['caps_lock'] } }
-              )
-
-              //
-              // normalize remaining unbound letter keys
-              //
-            ),
+              ),
+            ],
           },
           {
             description: 'Tab Modifier Mode [Tab as Trigger Key]',

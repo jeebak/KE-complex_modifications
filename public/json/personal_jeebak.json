@@ -440,55 +440,6 @@
         {
           "type": "basic",
           "from": {
-            "key_code": "left_shift",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "spacebar",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ],
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "jb_touchcursor_extended_mode",
-              "value": 1
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "spacebar",
-            "modifiers": {
-              "mandatory": [
-                "left_shift"
-              ],
-              "optional": [
-                "caps_lock",
-                "option"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "spacebar",
-              "modifiers": [
-                "left_option"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
             "key_code": "a",
             "modifiers": {
               "optional": [
@@ -1292,7 +1243,12 @@
               "value": 1
             }
           ]
-        },
+        }
+      ]
+    },
+    {
+      "description": "TouchCursor Extended Mode [Misc Personalizations {;,',/}, Media Keys]",
+      "manipulators": [
         {
           "type": "basic",
           "from": {
@@ -1305,9 +1261,8 @@
           },
           "to": [
             {
-              "key_code": "semicolon",
+              "key_code": "left_arrow",
               "modifiers": [
-                "left_command",
                 "left_control"
               ]
             }
@@ -1332,9 +1287,8 @@
           },
           "to": [
             {
-              "key_code": "quote",
+              "key_code": "right_arrow",
               "modifiers": [
-                "left_command",
                 "left_control"
               ]
             }
@@ -1359,7 +1313,10 @@
           },
           "to": [
             {
-              "shell_command": "~/.zgen/jeebak/devtools-master/bin/maccomplice togg_app iTerm2"
+              "key_code": "slash",
+              "modifiers": [
+                "left_command"
+              ]
             }
           ],
           "conditions": [
@@ -1382,9 +1339,8 @@
           },
           "to": [
             {
-              "key_code": "slash",
+              "key_code": "down_arrow",
               "modifiers": [
-                "left_command",
                 "left_control"
               ]
             }
@@ -1410,6 +1366,32 @@
           "to": [
             {
               "key_code": "mission_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_shift",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "spacebar",
+              "modifiers": [
+                "left_option"
+              ]
             }
           ],
           "conditions": [
