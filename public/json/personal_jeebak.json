@@ -55,6 +55,16 @@
                 "^com\\.parallels\\.winapp\\.",
                 "^com\\.utmapp\\.UTM$"
               ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
             }
           ],
           "to_if_alone": [
@@ -1706,6 +1716,16 @@
                 "^com\\.parallels\\.winapp\\.",
                 "^com\\.utmapp\\.UTM$"
               ]
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
             }
           ],
           "to_if_alone": [
@@ -3091,6 +3111,18 @@
                 "name": "jb_mousecursor_mode",
                 "value": 1
               }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
             }
           ],
           "to_if_alone": [
