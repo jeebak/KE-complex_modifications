@@ -2109,35 +2109,6 @@
             }
           ],
           "from": {
-            "key_code": "q",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "q",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option",
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "jb_tab_mode",
-              "value": 1
-            }
-          ],
-          "from": {
             "key_code": "w",
             "modifiers": {
               "optional": [
@@ -2177,35 +2148,6 @@
           "to": [
             {
               "key_code": "e",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option",
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "jb_tab_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "t",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "t",
               "modifiers": [
                 "left_command",
                 "left_control",
@@ -2486,35 +2428,6 @@
             }
           ],
           "from": {
-            "key_code": "s",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "s",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option",
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "jb_tab_mode",
-              "value": 1
-            }
-          ],
-          "from": {
             "key_code": "d",
             "modifiers": {
               "optional": [
@@ -2554,64 +2467,6 @@
           "to": [
             {
               "key_code": "f",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option",
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "jb_tab_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "g",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "g",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option",
-                "left_shift"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "conditions": [
-            {
-              "type": "variable_if",
-              "name": "jb_tab_mode",
-              "value": 1
-            }
-          ],
-          "from": {
-            "key_code": "h",
-            "modifiers": {
-              "optional": [
-                "caps_lock"
-              ]
-            }
-          },
-          "to": [
-            {
-              "key_code": "h",
               "modifiers": [
                 "left_command",
                 "left_control",
@@ -3002,20 +2857,13 @@
           "type": "basic",
           "conditions": [
             {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com\\.jetbrains\\.PhpStorm$",
-                "^com\\.jetbrains\\.WebStorm$"
-              ]
-            },
-            {
               "type": "variable_if",
               "name": "jb_tab_mode",
               "value": 1
             }
           ],
           "from": {
-            "key_code": "r",
+            "key_code": "h",
             "modifiers": {
               "optional": [
                 "caps_lock"
@@ -3024,11 +2872,30 @@
           },
           "to": [
             {
-              "key_code": "r",
-              "modifiers": [
-                "left_command",
-                "left_option"
+              "shell_command": "/opt/homebrew/bin/neru hints"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "jb_tab_mode",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
               ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "/opt/homebrew/bin/neru grid"
             }
           ]
         },
@@ -3051,13 +2918,76 @@
           },
           "to": [
             {
-              "key_code": "r",
-              "modifiers": [
-                "left_command",
-                "left_control",
-                "left_option",
-                "left_shift"
+              "shell_command": "/opt/homebrew/bin/neru recursive_grid"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "jb_tab_mode",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
               ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "/opt/homebrew/bin/neru config reload && osascript -e 'display notification \"neru configs reloaded!\" with title \"neru\"'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "jb_tab_mode",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "tab"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "conditions": [
+            {
+              "type": "variable_if",
+              "name": "jb_tab_mode",
+              "value": 1
+            }
+          ],
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "caps_lock"
+              ]
+            }
+          },
+          "to": [
+            {
+              "shell_command": "/opt/homebrew/bin/neru scroll"
             }
           ]
         },
@@ -3080,7 +3010,12 @@
           },
           "to": [
             {
-              "shell_command": "osascript -e 'display notification \"Tab-,\" with title \"Triggered:\"'"
+              "key_code": "comma",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
             }
           ]
         },
@@ -3103,7 +3038,12 @@
           },
           "to": [
             {
-              "shell_command": "osascript -e 'display notification \"Tab-.\" with title \"Triggered:\"'"
+              "key_code": "period",
+              "modifiers": [
+                "left_command",
+                "left_control",
+                "left_option"
+              ]
             }
           ]
         },
@@ -3126,7 +3066,7 @@
           },
           "to": [
             {
-              "shell_command": "osascript -e 'display notification \"Tab-/\" with title \"Triggered:\"'"
+              "shell_command": "~/.local/bin/karabiner-togg_app.bash ide"
             }
           ]
         }

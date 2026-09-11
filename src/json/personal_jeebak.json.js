@@ -266,36 +266,49 @@ function main() {
               // Mostly map Tab-[x] to corresponding Hyper-[x]
               //
               [
-                '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'hyphen', 'equal_sign', 'delete_or_backspace',
-                'q', 'w', 'e', 't', 'y', 'u', 'i', 'o', 'p', 'open_bracket', 'close_bracket', 'backslash',
-                'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'semicolon', 'quote', 'return_or_enter',
+                '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', 'hyphen',       'equal_sign',     'delete_or_backspace',
+                     'w', 'e',           'y', 'u', 'i', 'o', 'p', 'open_bracket', 'close_bracket',  'backslash',
+                'a',      'd', 'f',           'j', 'k', 'l',      'semicolon',    'quote',          'return_or_enter',
                 'z', 'x', 'c', 'v', 'b', 'n', 'm',
               ].map(function (keyCode) {
                 return tabModeHyperKey(keyCode)
               }),
 
               //
-              // Tab-r to ⌥-⌘-r [Used to "Resume Program" in JetBrains Debugger, Hyper-r otherwise]
+              // Overrides of the above Hyper mappings
               //
-              {
-                type: 'basic',
-                conditions: [
-                  { type: 'frontmost_application_if', bundle_identifiers: ['^com\\.jetbrains\\.PhpStorm$', '^com\\.jetbrains\\.WebStorm$'] },
-                  { type: 'variable_if', name: 'jb_tab_mode', value: 1 },
-                ],
-                from: { key_code: 'r', modifiers: { optional: ['caps_lock'] } },
-                to: [{ key_code: 'r', modifiers: ['left_command', 'left_option'] }],
-              },
-              tabModeHyperKey('r'),
 
-              // Tab-, to "???"]
-              tabModeKey('comma', [{ shell_command: 'osascript -e \'display notification "Tab-," with title "Triggered:"\'' }]),
+              // Tab-h to neru hints
+              tabModeKey('h', [{ shell_command: '/opt/homebrew/bin/neru hints' }]),
 
-              // Tab-. to "???"]
-              tabModeKey('period', [{ shell_command: 'osascript -e \'display notification "Tab-." with title "Triggered:"\'' }]),
+              // Tab-g to neru grid
+              tabModeKey('g', [{ shell_command: '/opt/homebrew/bin/neru grid' }]),
 
-              // Tab-/ to "???"]
-              tabModeKey('slash', [{ shell_command: 'osascript -e \'display notification "Tab-/" with title "Triggered:"\'' }])
+              // Tab-r to neru recursive_grid
+              tabModeKey('r', [{ shell_command: '/opt/homebrew/bin/neru recursive_grid' }]),
+
+              // Tab-q to neru config reload
+              tabModeKey('q', [
+                {
+                  shell_command:
+                    "/opt/homebrew/bin/neru config reload && osascript -e 'display notification \"neru configs reloaded!\" with title \"neru\"'",
+                },
+              ]),
+
+              // Tab-t to (repeatable) tab
+              tabModeKey('t', [{ key_code: 'tab' }]),
+
+              // Tab-s to neru scroll
+              tabModeKey('s', [{ shell_command: '/opt/homebrew/bin/neru scroll' }]),
+
+              // Tab-, to Hyper-, (⌘⌥⌃, no ⇧)
+              tabModeHyperKey('comma', ['left_command', 'left_control', 'left_option']),
+
+              // Tab-. to Hyper-. (⌘⌥⌃, no ⇧)
+              tabModeHyperKey('period', ['left_command', 'left_control', 'left_option']),
+
+              // Tab-/ to toggle ide app hidden/visible
+              tabModeKey('slash', [{ shell_command: '~/.local/bin/karabiner-togg_app.bash ide' }])
             ),
           },
           {
