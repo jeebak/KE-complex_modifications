@@ -4,6 +4,16 @@ const karabiner = require('../lib/karabiner')
 
 const HYPER = ['left_command', 'left_control', 'left_option', 'left_shift']
 
+const MOUSECURSOR_MODE_OFF = [
+  { set_variable: { name: 'jb_mousecursor_mode', value: 0 } },
+  { set_notification_message: { id: 'jb_mousecursor_mode', text: '' } },
+]
+
+const MOUSECURSOR_MOVE_DISTANCE = 1536
+const MOUSECURSOR_SCROLL_DISTANCE = 64
+const MOUSECURSOR_SPEED_FAST = 2.0
+const MOUSECURSOR_SPEED_FINE = 0.3
+
 function main() {
   console.log(
     JSON.stringify(
@@ -316,57 +326,97 @@ function main() {
             ),
           },
           {
-            description: 'MouseCursor Mode [D as Trigger Key]',
+            description: 'MouseCursor Mode [Q+M as Trigger Key]',
             manipulators: [
               //
-              // press d to enter MouseCursor Mode, release to quit
+              // press q+m simultaneously to toggle MouseCursor Mode on/off
               //
               {
                 type: 'basic',
-                from: { key_code: 'd', modifiers: { optional: ['caps_lock'] } },
-                to: [{ set_variable: { name: 'jb_mousecursor_mode', value: 1 } }],
+                from: { simultaneous: [{ key_code: 'q' }, { key_code: 'm' }] },
+                to: [
+                  { set_variable: { name: 'jb_mousecursor_mode', value: 1 } },
+                  { set_notification_message: { id: 'jb_mousecursor_mode', text: 'MouseCursor Mode' } },
+                ],
                 conditions: [
                   { type: 'variable_unless', name: 'jb_touchcursor_extended_mode', value: 1 },
                   { type: 'variable_unless', name: 'jb_tab_mode', value: 1 },
+                  { type: 'variable_if', name: 'jb_mousecursor_mode', value: 0 },
                 ],
-                to_if_alone: [{ key_code: 'd' }],
-                to_after_key_up: [{ set_variable: { name: 'jb_mousecursor_mode', value: 0 } }],
+              },
+              {
+                type: 'basic',
+                from: { simultaneous: [{ key_code: 'q' }, { key_code: 'm' }] },
+                to: MOUSECURSOR_MODE_OFF,
+                conditions: [{ type: 'variable_if', name: 'jb_mousecursor_mode', value: 1 }],
               },
               //
               // change j/k/i/l to normal mouse left,down,up,right
               //
-              mouseCursorKey('j', { mouse_key: { x: -1536 } }),
-              mouseCursorKey('k', { mouse_key: { y: 1536 } }),
-              mouseCursorKey('i', { mouse_key: { y: -1536 } }),
-              mouseCursorKey('l', { mouse_key: { x: 1536 } }),
+              mouseCursorKey('j', { mouse_key: { x: -MOUSECURSOR_MOVE_DISTANCE } }),
+              mouseCursorKey('k', { mouse_key: { y: MOUSECURSOR_MOVE_DISTANCE } }),
+              mouseCursorKey('i', { mouse_key: { y: -MOUSECURSOR_MOVE_DISTANCE } }),
+              mouseCursorKey('l', { mouse_key: { x: MOUSECURSOR_MOVE_DISTANCE } }),
 
               //
               // change h/n/u/o to scroll up/down/left/right
-              // (depends on "Scroll direction" in System Preferences)
+              // The "Natural scrolling" setting already re-inverts synthesized
+              // wheel deltas the same as real hardware ones.
               //
-              mouseCursorKey('h', { mouse_key: { vertical_wheel: 64 } }),
-              mouseCursorKey('n', { mouse_key: { vertical_wheel: -64 } }),
-              mouseCursorKey('u', { mouse_key: { horizontal_wheel: -64 } }),
-              mouseCursorKey('o', { mouse_key: { horizontal_wheel: 64 } }),
+              mouseCursorKey('n', { mouse_key: { vertical_wheel: MOUSECURSOR_SCROLL_DISTANCE } }),
+              mouseCursorKey('h', { mouse_key: { vertical_wheel: -MOUSECURSOR_SCROLL_DISTANCE } }),
+              mouseCursorKey('u', { mouse_key: { horizontal_wheel: -MOUSECURSOR_SCROLL_DISTANCE } }),
+              mouseCursorKey('o', { mouse_key: { horizontal_wheel: MOUSECURSOR_SCROLL_DISTANCE } }),
 
               //
               // press a for "accelerated" (faster) movement
               //
-              mouseCursorKey('a', { mouse_key: { speed_multiplier: 2.0 } }, { optional: ['caps_lock'] }),
+              mouseCursorKey('a', { mouse_key: { speed_multiplier: MOUSECURSOR_SPEED_FAST } }, { optional: ['caps_lock'] }),
               //
               // press f for "fine-grained" (slower) movement
               //
-              mouseCursorKey('f', { mouse_key: { speed_multiplier: 0.3 } }, { optional: ['caps_lock'] }),
+              mouseCursorKey('f', { mouse_key: { speed_multiplier: MOUSECURSOR_SPEED_FINE } }, { optional: ['caps_lock'] }),
+              // press y for a (left button) double-click
+              // (two plain clicks, not cg_event_double_click, which is
+              // software-synthesized and noticeably laggier)
+              //
+              {
+                type: 'basic',
+                from: { key_code: 'y', modifiers: { optional: ['any'] } },
+                to: [{ pointing_button: 'button1' }, { pointing_button: 'button1' }],
+                conditions: [{ type: 'variable_if', name: 'jb_mousecursor_mode', value: 1 }],
+              },
+
+              //
+              // press z/x/c/v for ⌘-z/⌘-x/⌘-c/⌘-v, then exit MouseCursor Mode
+              //
+              mouseCursorCmdKeyAndExit('z'),
+              mouseCursorCmdKeyAndExit('x'),
+              mouseCursorCmdKeyAndExit('c'),
+              mouseCursorCmdKeyAndExit('v'),
+
+              //
+              // press escape/return_or_enter to exit MouseCursor Mode (no action)
+              //
+              {
+                type: 'basic',
+                from: { key_code: 'escape', modifiers: { optional: ['any'] } },
+                to: MOUSECURSOR_MODE_OFF,
+                conditions: [{ type: 'variable_if', name: 'jb_mousecursor_mode', value: 1 }],
+              },
+              {
+                type: 'basic',
+                from: { key_code: 'return_or_enter', modifiers: { optional: ['any'] } },
+                to: MOUSECURSOR_MODE_OFF,
+                conditions: [{ type: 'variable_if', name: 'jb_mousecursor_mode', value: 1 }],
+              },
+
             ].concat(
               // buttons
               [
-                { from: 'w', to: 'button1' },
-                { from: 'g', to: 'button1' },
-                { from: 'm', to: 'button1' },
-                { from: 's', to: 'button2' },
+                { from: 'spacebar', to: 'button1' },
                 { from: 'p', to: 'button2' },
-                { from: 'v', to: 'button3' },
-                { from: 'slash', to: 'button3' },
+                { from: 'm', to: 'button3' },
                 { from: 'semicolon', to: 'button4' },
                 { from: 'quote', to: 'button5' },
               ].map(function (m) {
@@ -463,13 +513,23 @@ function tabModeHyperKey(keyCode, modifiers) {
 }
 
 //
-// MouseCursor Mode [D as Trigger Key] helper
+// MouseCursor Mode [Q+M as Trigger Key] helper
 //
 function mouseCursorKey(fromKeyCode, to, modifiers) {
   return {
     type: 'basic',
     from: { key_code: fromKeyCode, modifiers: modifiers || { optional: ['any'] } },
     to: [to],
+    conditions: [{ type: 'variable_if', name: 'jb_mousecursor_mode', value: 1 }],
+  }
+}
+
+// press fromKeyCode for ⌘-fromKeyCode, then exit MouseCursor Mode
+function mouseCursorCmdKeyAndExit(fromKeyCode) {
+  return {
+    type: 'basic',
+    from: { key_code: fromKeyCode, modifiers: { optional: ['any'] } },
+    to: [{ key_code: fromKeyCode, modifiers: ['left_command'] }].concat(MOUSECURSOR_MODE_OFF),
     conditions: [{ type: 'variable_if', name: 'jb_mousecursor_mode', value: 1 }],
   }
 }
