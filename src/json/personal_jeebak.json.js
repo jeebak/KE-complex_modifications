@@ -25,9 +25,9 @@ function main() {
               {
                 type: 'basic',
                 from: { key_code: 'spacebar', modifiers: { optional: ['caps_lock'] } },
-                to: [{ set_variable: { name: 'touchcursor_extended_mode', value: 1 } }],
+                to: [{ set_variable: { name: 'jb_touchcursor_extended_mode', value: 1 } }],
                 to_if_alone: [{ key_code: 'spacebar' }],
-                to_after_key_up: [{ set_variable: { name: 'touchcursor_extended_mode', value: 0 } }],
+                to_after_key_up: [{ set_variable: { name: 'jb_touchcursor_extended_mode', value: 0 } }],
               },
 
               //
@@ -256,9 +256,9 @@ function main() {
               {
                 type: 'basic',
                 from: { key_code: 'tab', modifiers: { optional: ['caps_lock'] } },
-                to: [{ set_variable: { name: 'tab_modifier', value: 1 } }],
+                to: [{ set_variable: { name: 'jb_tab_mode', value: 1 } }],
                 to_if_alone: [{ key_code: 'tab' }],
-                to_after_key_up: [{ set_variable: { name: 'tab_modifier', value: 0 } }],
+                to_after_key_up: [{ set_variable: { name: 'jb_tab_mode', value: 0 } }],
               },
 
               //
@@ -280,7 +280,7 @@ function main() {
                 type: 'basic',
                 conditions: [
                   { type: 'frontmost_application_if', bundle_identifiers: ['^com\\.jetbrains\\.PhpStorm$', '^com\\.jetbrains\\.WebStorm$'] },
-                  { type: 'variable_if', name: 'tab_modifier', value: 1 },
+                  { type: 'variable_if', name: 'jb_tab_mode', value: 1 },
                 ],
                 from: { key_code: 'r', modifiers: { optional: ['caps_lock'] } },
                 to: [{ key_code: 'r', modifiers: ['left_command', 'left_option'] }],
@@ -306,9 +306,9 @@ function main() {
               {
                 type: 'basic',
                 from: { key_code: 'd', modifiers: { optional: ['caps_lock'] } },
-                to: [{ set_variable: { name: 'mousecursor_mode', value: 1 } }],
+                to: [{ set_variable: { name: 'jb_mousecursor_mode', value: 1 } }],
                 to_if_alone: [{ key_code: 'd' }],
-                to_after_key_up: [{ set_variable: { name: 'mousecursor_mode', value: 0 } }],
+                to_after_key_up: [{ set_variable: { name: 'jb_mousecursor_mode', value: 0 } }],
               },
               //
               // change j/k/i/l to normal mouse left,down,up,right
@@ -393,7 +393,7 @@ function main() {
 //
 // TouchCursor Extended Mode [Space as Trigger Key] helper
 // (also used by the Space-{1-0,-,=} and Misc Personalizations/Media Keys rules,
-// since they're gated by the same touchcursor_extended_mode variable)
+// since they're gated by the same jb_touchcursor_extended_mode variable)
 //
 function touchCursorKey(fromKeyCode, to, options) {
   options = options || {}
@@ -414,7 +414,7 @@ function touchCursorKey(fromKeyCode, to, options) {
     manipulator.parameters = options.parameters
   }
   manipulator.conditions = (options.extraConditions || []).concat([
-    { type: 'variable_if', name: 'touchcursor_extended_mode', value: 1 },
+    { type: 'variable_if', name: 'jb_touchcursor_extended_mode', value: 1 },
   ])
   return manipulator
 }
@@ -425,7 +425,7 @@ function touchCursorKey(fromKeyCode, to, options) {
 function tabModeKey(fromKeyCode, to) {
   return {
     type: 'basic',
-    conditions: [{ type: 'variable_if', name: 'tab_modifier', value: 1 }],
+    conditions: [{ type: 'variable_if', name: 'jb_tab_mode', value: 1 }],
     from: { key_code: fromKeyCode, modifiers: { optional: ['caps_lock'] } },
     to: to,
   }
@@ -443,7 +443,7 @@ function mouseCursorKey(fromKeyCode, to, modifiers) {
     type: 'basic',
     from: { key_code: fromKeyCode, modifiers: modifiers || { optional: ['any'] } },
     to: [to],
-    conditions: [{ type: 'variable_if', name: 'mousecursor_mode', value: 1 }],
+    conditions: [{ type: 'variable_if', name: 'jb_mousecursor_mode', value: 1 }],
   }
 }
 
