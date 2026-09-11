@@ -2,159 +2,216 @@
   These rules are to accommodate a 60% keyboard, and to minimize (or eliminate) curling thumbs and pinkies for the modifier keys.
 </p>
 
-<p style="margin-top: 20px;">
-  <span style="font-weight: bold">
-    TouchCursor Extended Mode [Space as Trigger Key]
-  </span><br/>
-  (use with <code>Change caps_lock to control if pressed with other keys, to escape if pressed alone.</code>)
+<h4 style="margin-top: 30px;">TouchCursor Extended Mode [Space as Trigger Key]</h4>
+<p>
+  Hold <code>spacebar</code> to enter, release to exit. Tap alone for a plain space.
+  <br/>
+  Use with:
+  <a href="/?rule=json%2Fcaps_lock.json" target="_blank" class="text-muted">
+    Change caps_lock to control if pressed with other keys, to escape if pressed alone
+  </a>.
+  <br/>
+  This is 3 separately-toggleable rules: the core bindings below, the F-key row, and Misc/Media keys.
   <!--
     :r! base64 < ~/Downloads/keyboard-layout.png
   -->
+  <br/>
   <a href="http://www.keyboard-layout-editor.com/#/gists/55f3e3c9149d23cbae5f8ac559627d0f" target="_blank">
     <img src="personal_jeebak/key-map.png" alt="TouchCursor Extended Mode [Space as Trigger Key]">
   </a>
 </p>
 
-<ul>
-  <li>Most default TouchCursor bindings (minus "y" to "Insert",) plus:
-    <ul>
-      <li>Space-left_shift to ⌥-spacebar (Alfred)</li>
-      <li>Space-{a,e,r} to {⌥-any,⌘-any,⇧-any}
-        <ul>
-          <li>Space-a to ⌘-a, if alone</li>
-          <li>Space-e to ⌘-n, if alone</li>
-          <li>Space-r to ⌘-r, if alone</li>
-        </ul>
-      </li>
-      <li>Space-{⇥,q,w} to {⌥-⇥,⌘-⇥,⌃-⇥} [shift modifier allowed]</li>
-      <li>Space-{b,t,s} to {`,~,spacebar}</li>
-      <li>Space-{d,f,g,comma,period} to {⌘-w,⌘-f,⌘-g,⌘-t,⌘-⇧-t}</li>
-      <li>Space-{z,x,c,v} to {⌘-z,⌘-x,⌘-c,⌘-v}</li>
-      <li>Space-{1-0,-,=} to {F1-F10,F11,F12}</li>
-      <li>Misc Personalizations
-        <ul>
-          <li>Space-; to ⌃-←; [custom shortcut to: Move left a space]</li>
-          <li>Space-' to ⌃-→' [custom shortcut to: Move right a space]</li>
-          <li>Space-/ to ⌘-/ [custom shortcut to: Toggle Show/Hide terminal app windows]</li>
-          <li>Space-right_shift to ⌃-↓ [custom shortcut to: Application windows]</li>
-        </ul>
-      </li>
-      <li>Space-↩ to mission_control [default shortcut is: ⌃-↑]</li>
-      <li>Media keys
-        <ul>
-          <li>Space-⎋  and Space-` to rewind</li>
-          <li>Space-⌫  to fastforward</li>
-          <li>Space-y to mute</li>
-          <li>Space-[ to volume_decrement</li>
-          <li>Space-] to volume_increment</li>
-          <li>Space-\ to play_or_pause</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ul>
+<h4 style="margin-top: 30px;">Core bindings</h4>
+<details>
+  <summary>Click to view keys</summary>
 
-<p style="margin-top: 20px; font-weight: bold">
-  Tab Modifier Mode [Tab as Trigger Key]
+  <table class="table table-striped">
+    <tr><th>Key</th><th>Output</th><th>Notes</th></tr>
+    <tr>
+      <th>Cursor &amp; Editing</th>
+      <td colspan="2">These are the classic TouchCursor bindings (minus <code>y</code> used under Media below)</td>
+    </tr>
+    <tr><td><code>i</code></td><td>↑</td><td></td></tr>
+    <tr><td><code>j</code></td><td>←</td><td>terminal apps: <code>⌥←</code> (word left)</td></tr>
+    <tr><td><code>k</code></td><td>↓</td><td></td></tr>
+    <tr><td><code>l</code></td><td>→</td><td>terminal apps: <code>⌥→</code> (word right)</td></tr>
+    <tr><td><code>u</code></td><td>Home</td><td></td></tr>
+    <tr><td><code>o</code></td><td>End</td><td></td></tr>
+    <tr><td><code>h</code></td><td>Page Up</td><td></td></tr>
+    <tr><td><code>n</code></td><td>Page Down</td><td></td></tr>
+    <tr><td><code>p</code></td><td>Delete/Backspace</td><td>terminal apps: <code>⌃⌫</code> (delete word back)</td></tr>
+    <tr><td><code>m</code></td><td>Delete Forward</td><td>terminal apps: <code>⌥⌦</code> (delete word forward)</td></tr>
+
+    <tr>
+      <th>Modifier Holds</th>
+      <td colspan="2">Hold for the modifier, tap alone for the fallback</td>
+    </tr>
+    <tr><td><code>a</code></td><td><code>⌥</code> (held)</td><td>if alone: <code>⌘-a</code></td></tr>
+    <tr><td><code>e</code></td><td><code>⌘</code> (held)</td><td>if alone: <code>⌘-n</code></td></tr>
+    <tr><td><code>r</code></td><td><code>⇧</code> (held)</td><td>if alone: <code>⌘-r</code></td></tr>
+
+    <tr><th colspan="3">Tab Switching</th></tr>
+    <tr><td><code>tab</code></td><td><code>⌥-⇥</code></td><td><code>⇧</code> optional</td></tr>
+    <tr><td><code>q</code></td><td><code>⌘-⇥</code></td><td><code>⇧</code> optional</td></tr>
+    <tr><td><code>w</code></td><td><code>⌃-⇥</code></td><td><code>⇧</code> optional</td></tr>
+
+    <tr><th colspan="3">Punctuation</th></tr>
+    <tr><td><code>b</code></td><td><code>`</code></td><td>grave accent</td></tr>
+    <tr><td><code>t</code></td><td><code>~</code></td><td>tilde</td></tr>
+    <tr><td><code>s</code></td><td><code>␣</code></td><td>spacebar</td></tr>
+
+    <tr><th colspan="3">App Shortcuts</th></tr>
+    <tr><td><code>d</code></td><td><code>⌘-w</code></td><td>Close Window</td></tr>
+    <tr><td><code>f</code></td><td><code>⌘-f</code></td><td>Find</td></tr>
+    <tr><td><code>g</code></td><td><code>⌘-g</code></td><td>Find Next</td></tr>
+    <tr><td><code>,</code></td><td><code>⌘-t</code></td><td>New Tab</td></tr>
+    <tr><td><code>.</code></td><td><code>⌘-⇧-t</code></td><td>Reopen Closed Tab</td></tr>
+
+    <tr><th colspan="3">Edit Shortcuts</th></tr>
+    <tr><td><code>z</code></td><td><code>⌘-z</code></td><td>Undo</td></tr>
+    <tr><td><code>x</code></td><td><code>⌘-x</code></td><td>Cut</td></tr>
+    <tr><td><code>c</code></td><td><code>⌘-c</code></td><td>Copy</td></tr>
+    <tr><td><code>v</code></td><td><code>⌘-v</code></td><td>Paste</td></tr>
+  </table>
+</details>
+
+<h4 style="margin-top: 30px;">F-key row</h4>
+<details>
+  <summary>Click to view keys</summary>
+
+  <table class="table table-striped">
+    <tr><th>Key</th><th>Output</th><th>Notes</th></tr>
+    <tr><td><code>1-0, -, =</code></td><td><code>F1-F10, F11, F12</code></td><td></td></tr>
+  </table>
+</details>
+
+<h4 style="margin-top: 30px;">Misc &amp; Media</h4>
+<details>
+  <summary>Click to view keys</summary>
+
+  <table class="table table-striped">
+    <tr><th>Key</th><th>Output</th><th>Notes</th></tr>
+    <tr><th colspan="3">Desktop Navigation</th></tr>
+    <tr><td><code>;</code></td><td><code>⌃-←</code></td><td>move left a space</td></tr>
+    <tr><td><code>'</code></td><td><code>⌃-→</code></td><td>move right a space</td></tr>
+    <tr><td><code>/</code></td><td><code>⌘-/</code></td><td>toggle show/hide terminal app windows</td></tr>
+    <tr><td><code>right_shift</code></td><td><code>⌃-↓</code></td><td>Application windows</td></tr>
+    <tr><td><code>return_or_enter</code></td><td><code>⌃-↑</code></td><td>Mission Control</td></tr>
+
+    <tr><th colspan="3">Alfred</th></tr>
+    <tr><td><code>left_shift</code></td><td><code>⌥-␣</code></td><td></td></tr>
+
+    <tr><th colspan="3">Media Keys</th></tr>
+    <tr><td><code>escape</code> / <code>`</code></td><td>Rewind</td><td></td></tr>
+    <tr><td><code>delete_or_backspace</code></td><td>Fast Forward</td><td></td></tr>
+    <tr><td><code>y</code></td><td>Mute</td><td></td></tr>
+    <tr><td><code>[</code></td><td>Volume Down</td><td></td></tr>
+    <tr><td><code>]</code></td><td>Volume Up</td><td></td></tr>
+    <tr><td><code>\</code></td><td>Play/Pause</td><td></td></tr>
+  </table>
+</details>
+
+<h4 style="margin-top: 30px;">Tab Modifier Mode [Tab as Trigger Key]</h4>
+<p>
+  Hold <code>tab</code> to enter, release to exit. Tap alone for a plain tab.<br/>
+  Most keys map to Hyper (<code>⌘⇧⌥⌃</code>), used for Hammerspoon and other apps. The overrides below take priority:
 </p>
+<details>
+  <summary>Click to view keys</summary>
 
-<ul>
-  <li>
-    Hyper: <code>⌘⇧⌥⌃-[x]</code>
-    <ul>
-      <li>Mostly map Tab-[x] to corresponding Hyper-[x], primarily used for Hammerspoon, or other apps</li>
-      <li>Tab-t to (repeatable) tab</li>
-    </ul>
-  </li>
-  <li>
-    Overrides of the above Hyper mappings:
-    <ul>
-      <li>Tab-h to neru hints</li>
-      <li>Tab-g to neru grid</li>
-      <li>Tab-r to neru recursive_grid</li>
-      <li>Tab-q to neru config reload</li>
-      <li>Tab-s to neru scroll</li>
-      <li>Tab-, to ⌘⌥⌃-, [not full Hyper — no ⇧]</li>
-      <li>Tab-. to ⌘⌥⌃-. [not full Hyper — no ⇧]</li>
-      <li>Tab-/ to toggle ide app hidden/visible</li>
-    </ul>
-  </li>
-</ul>
+  <table class="table table-striped">
+    <tr><th>Key</th><th>Output</th><th>Notes</th></tr>
+    <tr><td><code>h</code></td><td><code>neru hints</code></td><td></td></tr>
+    <tr><td><code>g</code></td><td><code>neru grid</code></td><td></td></tr>
+    <tr><td><code>r</code></td><td><code>neru recursive_grid</code></td><td></td></tr>
+    <tr><td><code>q</code></td><td><code>neru config reload</code></td><td></td></tr>
+    <tr><td><code>s</code></td><td><code>neru scroll</code></td><td></td></tr>
+    <tr><td><code>t</code></td><td>tab (repeatable)</td><td></td></tr>
+    <tr>
+      <td><code>,</code> / <code>.</code></td>
+      <td><code>⌘⌥⌃-,</code> / <code>⌘⌥⌃-.</code></td>
+      <td>not full Hyper, no <code>⇧</code></td>
+    </tr>
+    <tr><td><code>/</code></td><td>toggle ide app hidden/visible</td><td></td></tr>
+  </table>
+</details>
 
-<p style="margin-top: 20px;">
-  <span style="font-weight: bold">
-    MouseCursor Mode [Q+M as Trigger Key]
-  </span><br/>
-  (press q and m simultaneously to toggle on/off)
+<h4 style="margin-top: 30px;">MouseCursor Mode [Q+M as Trigger Key]</h4>
+<p>Press <code>q</code>+<code>m</code> simultaneously to toggle on/off. A notification shows while active.</p>
+<details>
+  <summary>Click to view keys</summary>
+
+  <table class="table table-striped">
+    <tr><th>Key</th><th>Action</th><th>Notes</th></tr>
+    <tr><th colspan="3">Movement</th></tr>
+    <tr>
+      <td><code>i</code> / <code>j</code> / <code>k</code> / <code>l</code></td>
+      <td>up / left / down / right</td>
+      <td></td>
+    </tr>
+    <tr><th colspan="3">Scroll</th></tr>
+    <tr>
+      <td><code>u</code> / <code>o</code> / <code>h</code> / <code>n</code></td>
+      <td>left / right / up / down</td>
+      <td></td>
+    </tr>
+    <tr><th colspan="3">Buttons</th></tr>
+    <tr><td><code>spacebar</code></td><td>left click</td><td>hold to drag</td></tr>
+    <tr>
+      <td><code>m</code> / <code>p</code></td>
+      <td>middle / right click</td>
+      <td></td>
+    </tr>
+    <tr><td><code>y</code></td><td>left double-click</td><td></td></tr>
+    <tr><td><code>;</code></td><td>button4</td><td></td></tr>
+    <tr><td><code>'</code></td><td>button5</td><td></td></tr>
+
+    <tr><th colspan="3">Speed</th></tr>
+    <tr><td><code>a</code></td><td>accelerated (faster) movement</td><td></td></tr>
+    <tr><td><code>f</code></td><td>fine-grained (slower) movement</td><td></td></tr>
+
+    <tr><th colspan="3">Exits mode</th></tr>
+    <tr><td><code>z</code></td><td><code>⌘-z</code>, then exit</td><td>undo</td></tr>
+    <tr><td><code>x</code></td><td><code>⌘-x</code>, then exit</td><td>cut</td></tr>
+    <tr><td><code>c</code></td><td><code>⌘-c</code>, then exit</td><td>copy</td></tr>
+    <tr><td><code>v</code></td><td><code>⌘-v</code>, then exit</td><td>paste</td></tr>
+    <tr><td><code>escape</code></td><td>exit (no action)</td><td>must be the real Escape key &mdash; a caps_lock-to-escape mapping won't trigger this</td></tr>
+    <tr><td><code>return_or_enter</code></td><td>exit (no action)</td><td></td></tr>
+  </table>
+</details>
+
+<h4 style="margin-top: 30px;">Number Row Modifiers</h4>
+<p>Use with:
+  <a href="/?rule=json%2Fcaps_lock.json" target="_blank" class="text-muted">
+    Change caps_lock to control if pressed with other keys, to escape if pressed alone
+  </a>.
 </p>
+<p>Three keys per hand per modifier, on purpose: reach up to roughly the right spot and press whichever key lands under your finger, rather than aiming for one specific key.</p>
+<details>
+  <summary>Click to view keys</summary>
 
-<ul>
-  <li>press a for "accelerated" (faster) movement </li>
-  <li>press f for "fine-grained" (slower) movement</li>
-  <li>
-    Movement
-    <ul>
-      <li>j: mouse left</li>
-      <li>i: mouse up</li>
-      <li>k: mouse down</li>
-      <li>l: mouse right</li>
-    </ul>
-  </li>
-  <li>
-    Scroll
-    <ul>
-      <li>u: scroll left</li>
-      <li>o: scroll right</li>
-      <li>h: scroll up</li>
-      <li>n: scroll down</li>
-    </ul>
-  </li>
-  <li>
-    Buttons
-    <ul>
-      <li>spacebar: left click</li>
-      <li>p: right click</li>
-      <li>m: middle click</li>
-      <li>;: button4</li>
-      <li>': button5</li>
-    </ul>
-  </li>
-</ul>
+  <table class="table table-striped">
+    <tr><th>Left Hand</th><th>Right Hand</th><th>Hold</th></tr>
+    <tr><td><code>4,5,6</code></td><td><code>7,8,9</code></td><td><code>⌘</code></td></tr>
+    <tr><td><code>1,2,3</code></td><td><code>0,-,=</code></td><td><code>⌥</code></td></tr>
+  </table>
+</details>
 
-<p style="margin-top: 20px;">
-  <span style="font-weight: bold;">
-    Number Row Modifiers
-  </span><br/>
-  (use with <code>Change caps_lock to control if pressed with other keys, to escape if pressed alone.</code>)
+<h4 style="margin-top: 30px;">Home Row Modifiers</h4>
+<p>Use with:
+  <a href="/?rule=json%2Fcaps_lock.json" target="_blank" class="text-muted">
+    Change caps_lock to control if pressed with other keys, to escape if pressed alone
+  </a>.
 </p>
+<details>
+  <summary>Click to view keys</summary>
 
-<ul>
-  <li>Number row to ⌘ and ⌥
-    <ul>
-      <li>Tap for <code>{4,5,6,7,8,9}</code>, hold for <code>⌘</code></li>
-      <li>Tap for <code>{1,2,3,0,-,=}</code>, hold for <code>⌥</code></li>
-    </ul>
-  </li>
-</ul>
+  <table class="table table-striped">
+    <tr><th>Tap</th><th>Hold</th><th>Notes</th></tr>
+    <tr><td><code>;</code></td><td><code>⌘</code></td><td></td></tr>
+    <tr><td><code>'</code></td><td><code>⌥</code></td><td></td></tr>
+  </table>
+</details>
 
-<p style="margin-top: 20px;">
-  <span style="font-weight: bold;">
-    Home Row Modifiers
-  </span><br/>
-  (use with <code>Change caps_lock to control if pressed with other keys, to escape if pressed alone.</code>)
-</p>
-
-<ul>
-  <li>Right Hand Pinky ⌘ and ⌥
-    <ul>
-      <li>Tap for <code>;</code>, hold for <code>⌘</code></li>
-      <li>Tap for <code>'</code>, hold for <code>⌥</code></li>
-    </ul>
-  </li>
-</ul>
-
-<p style="margin-top: 20px;">
-  <span style="font-weight: bold;">
-    Swap left command and option in virtual machine/remote desktop
-  </span>
-</p>
+<h4 style="margin-top: 30px;">Swap left command and option in virtual machine/remote desktop</h4>
+<p>Swaps <code>left_command</code> and <code>left_option</code> while a remote desktop, VM, or VNC app is frontmost, to match the guest OS's usual Ctrl/Alt placement.</p>
