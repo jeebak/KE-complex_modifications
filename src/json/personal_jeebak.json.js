@@ -14,6 +14,11 @@ const MOUSECURSOR_SCROLL_DISTANCE = 64
 const MOUSECURSOR_SPEED_FAST = 2.0
 const MOUSECURSOR_SPEED_FINE = 0.3
 
+const TAP_HOLD_PARAMETERS = {
+  'basic.to_if_alone_timeout_milliseconds': 300,
+  'basic.to_if_held_down_threshold_milliseconds': 150,
+}
+
 function main() {
   console.log(
     JSON.stringify(
@@ -39,7 +44,11 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_unless',
-                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
+                    bundle_identifiers: [].concat(
+                      karabiner.bundleIdentifiers.remoteDesktop,
+                      karabiner.bundleIdentifiers.virtualMachine,
+                      karabiner.bundleIdentifiers.vnc
+                    ),
                   },
                   { type: 'variable_unless', name: 'jb_tab_mode', value: 1 },
                   { type: 'variable_unless', name: 'jb_mousecursor_mode', value: 1 },
@@ -99,26 +108,17 @@ function main() {
               touchCursorKey('a', null, {
                 toIfAlone: [{ key_code: 'a', modifiers: ['left_command'] }],
                 toIfHeldDown: [{ key_code: 'left_option' }],
-                parameters: {
-                  'basic.to_if_alone_timeout_milliseconds': 300,
-                  'basic.to_if_held_down_threshold_milliseconds': 0,
-                },
+                parameters: TAP_HOLD_PARAMETERS,
               }),
               touchCursorKey('e', null, {
                 toIfAlone: [{ key_code: 'n', modifiers: ['left_command'] }],
                 toIfHeldDown: [{ key_code: 'left_command' }],
-                parameters: {
-                  'basic.to_if_alone_timeout_milliseconds': 300,
-                  'basic.to_if_held_down_threshold_milliseconds': 0,
-                },
+                parameters: TAP_HOLD_PARAMETERS,
               }),
               touchCursorKey('r', null, {
                 toIfAlone: [{ key_code: 'r', modifiers: ['left_command'] }],
                 toIfHeldDown: [{ key_code: 'left_shift' }],
-                parameters: {
-                  'basic.to_if_alone_timeout_milliseconds': 300,
-                  'basic.to_if_held_down_threshold_milliseconds': 0,
-                },
+                parameters: TAP_HOLD_PARAMETERS,
               }),
 
               //
@@ -267,7 +267,11 @@ function main() {
                 conditions: [
                   {
                     type: 'frontmost_application_unless',
-                    bundle_identifiers: [].concat(karabiner.bundleIdentifiers.remoteDesktop, karabiner.bundleIdentifiers.virtualMachine),
+                    bundle_identifiers: [].concat(
+                      karabiner.bundleIdentifiers.remoteDesktop,
+                      karabiner.bundleIdentifiers.virtualMachine,
+                      karabiner.bundleIdentifiers.vnc
+                    ),
                   },
                   { type: 'variable_unless', name: 'jb_touchcursor_extended_mode', value: 1 },
                   { type: 'variable_unless', name: 'jb_mousecursor_mode', value: 1 },
@@ -543,10 +547,20 @@ function tapHold(fromKeyCode, holdKeyCode) {
     from: { key_code: fromKeyCode, modifiers: { optional: ['any'] } },
     to_if_alone: [{ key_code: fromKeyCode }],
     to_if_held_down: [{ key_code: holdKeyCode }],
-    parameters: {
-      'basic.to_if_alone_timeout_milliseconds': 300,
-      'basic.to_if_held_down_threshold_milliseconds': 0,
-    },
+    parameters: TAP_HOLD_PARAMETERS,
+    conditions: [
+      { type: 'variable_unless', name: 'jb_touchcursor_extended_mode', value: 1 },
+      { type: 'variable_unless', name: 'jb_tab_mode', value: 1 },
+      { type: 'variable_unless', name: 'jb_mousecursor_mode', value: 1 },
+      {
+        type: 'frontmost_application_unless',
+        bundle_identifiers: [].concat(
+          karabiner.bundleIdentifiers.remoteDesktop,
+          karabiner.bundleIdentifiers.virtualMachine,
+          karabiner.bundleIdentifiers.vnc
+        ),
+      },
+    ],
   }
 }
 
