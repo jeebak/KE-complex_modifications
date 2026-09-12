@@ -19,6 +19,46 @@ const TAP_HOLD_PARAMETERS = {
   'basic.to_if_held_down_threshold_milliseconds': 150,
 }
 
+// Home Row Modifiers (Bilateral Combinations) helpers
+// (standard touch-typing hand assignment)
+const LEFT_HAND_KEYS = [
+  'q', 'w', 'e', 'r', 't',
+  'a', 's', 'd', 'f', 'g',
+  'z', 'x', 'c', 'v', 'b',
+  '1', '2', '3', '4', '5',
+]
+const RIGHT_HAND_KEYS = [
+  'y', 'u', 'i', 'o', 'p',
+  'h', 'j', 'k', 'l', 'semicolon', 'quote',
+  'n', 'm', 'comma', 'period', 'slash',
+  '6', '7', '8', '9', '0', 'hyphen', 'equal_sign',
+]
+const BILATERAL_MOD_CANDIDATES = [
+  { from: 'semicolon', hold: 'left_command' },
+  { from: 'quote', hold: 'left_option' },
+  // Classic Miryoku home-row-mods (GACS order), mirrored across both hands
+  { from: 'a', hold: 'left_command' },
+  { from: 's', hold: 'left_option' },
+  { from: 'd', hold: 'left_shift' },
+  { from: 'f', hold: 'left_control' },
+  { from: 'j', hold: 'left_control' },
+  { from: 'k', hold: 'left_shift' },
+  { from: 'l', hold: 'left_option' },
+]
+const BILATERAL_MODE_CONDITIONS = [
+  { type: 'variable_unless', name: 'jb_touchcursor_extended_mode', value: 1 },
+  { type: 'variable_unless', name: 'jb_tab_mode', value: 1 },
+  { type: 'variable_unless', name: 'jb_mousecursor_mode', value: 1 },
+  {
+    type: 'frontmost_application_unless',
+    bundle_identifiers: [].concat(
+      karabiner.bundleIdentifiers.remoteDesktop,
+      karabiner.bundleIdentifiers.virtualMachine,
+      karabiner.bundleIdentifiers.vnc
+    ),
+  },
+]
+
 function main() {
   console.log(
     JSON.stringify(
@@ -429,34 +469,24 @@ function main() {
             ),
           },
           {
-            description: 'Number Row Modifiers',
-            manipulators: [
-              //
-              // Number row when tapped, and {1,2,3,0,-,=} to ⌥, and {4,5,6,7,8,9} to ⌘, when held
-              //
-              tapHold('1', 'left_option'),
-              tapHold('2', 'left_option'),
-              tapHold('3', 'left_option'),
-              tapHold('4', 'left_command'),
-              tapHold('5', 'left_command'),
-              tapHold('6', 'left_command'),
-              tapHold('7', 'left_command'),
-              tapHold('8', 'left_command'),
-              tapHold('9', 'left_command'),
-              tapHold('0', 'left_option'),
-              tapHold('hyphen', 'left_option'),
-              tapHold('equal_sign', 'left_option'),
-            ],
-          },
-          {
-            description: 'Home Row Modifiers',
-            manipulators: [
-              //
-              // Right Hand Pinky ⌘ and ⌥<; Tap for ;, hold for ⌘. Tap for ', hold for ⌥
-              //
-              tapHold('semicolon', 'left_command'),
-              tapHold('quote', 'left_option'),
-            ],
+            // Bilateral combinations (Miryoku/Achordion-style): a candidate's
+            // modifier only fires if the NEXT key pressed is on the opposite
+            // hand; same-hand rolls always resolve as a plain tap, no matter
+            // how long held. See jb_hr_* tracker manipulators below, which
+            // must stay ordered before the candidates for this to work.
+            description: 'Home Row Modifiers (Bilateral Combinations)',
+            manipulators: [].concat(
+              [].concat(LEFT_HAND_KEYS, RIGHT_HAND_KEYS)
+                .filter(function (keyCode) {
+                  return !BILATERAL_MOD_CANDIDATES.some(function (c) {
+                    return c.from === keyCode
+                  })
+                })
+                .map(bilateralKeyTracker),
+              BILATERAL_MOD_CANDIDATES.map(function (c) {
+                return bilateralTapHold(c.from, c.hold)
+              })
+            ),
           },
           {
             // Based on: src/json/virtual_machine.json.js
@@ -539,28 +569,59 @@ function mouseCursorCmdKeyAndExit(fromKeyCode) {
 }
 
 //
-// Number Row Modifiers / Home Row Modifiers helper
+// Bilateral Combinations (Home Row Modifiers) helpers
 //
-function tapHold(fromKeyCode, holdKeyCode) {
+function bilateralDownVariable(keyCode) {
+  return 'jb_hr_' + keyCode + '_down'
+}
+
+// exprtk sum-of-0/1-variables > 0. Values are only ever 0 or 1 (set/reset by
+// the trackers below), so summation is a safe "any nonzero" check -- no risk
+// from negative terms.
+function oppositeHandSumExpression(keyCode) {
+  const otherHand = LEFT_HAND_KEYS.indexOf(keyCode) !== -1 ? RIGHT_HAND_KEYS : LEFT_HAND_KEYS
+  return otherHand.map(bilateralDownVariable).join('+') + ' > 0'
+}
+
+// Plain pass-through + shadow key-down state, for every tracked key that
+// isn't itself a bilateral mod candidate.
+function bilateralKeyTracker(keyCode) {
+  return {
+    type: 'basic',
+    from: { key_code: keyCode, modifiers: { optional: ['any'] } },
+    to: [{ key_code: keyCode }, { set_variable: { name: bilateralDownVariable(keyCode), value: 1 } }],
+    to_after_key_up: [{ set_variable: { name: bilateralDownVariable(keyCode), value: 0 } }],
+    conditions: BILATERAL_MODE_CONDITIONS,
+  }
+}
+
+// Tap for the literal key; hold + an opposite-hand key pressed next fires the
+// modifier immediately (to_delayed_action.to_if_canceled evaluates its
+// per-event conditions live, the moment the interrupting key arrives); hold +
+// a same-hand key pressed next resolves as a plain tap instead, however long
+// already held. to_if_held_down/to_if_alone remain the fallback for a truly
+// isolated hold or tap with nothing else touched.
+function bilateralTapHold(fromKeyCode, holdKeyCode) {
+  const oppositeHandDown = oppositeHandSumExpression(fromKeyCode)
   return {
     type: 'basic',
     from: { key_code: fromKeyCode, modifiers: { optional: ['any'] } },
+    to: [{ set_variable: { name: bilateralDownVariable(fromKeyCode), value: 1 } }],
     to_if_alone: [{ key_code: fromKeyCode }],
     to_if_held_down: [{ key_code: holdKeyCode }],
-    parameters: TAP_HOLD_PARAMETERS,
-    conditions: [
-      { type: 'variable_unless', name: 'jb_touchcursor_extended_mode', value: 1 },
-      { type: 'variable_unless', name: 'jb_tab_mode', value: 1 },
-      { type: 'variable_unless', name: 'jb_mousecursor_mode', value: 1 },
-      {
-        type: 'frontmost_application_unless',
-        bundle_identifiers: [].concat(
-          karabiner.bundleIdentifiers.remoteDesktop,
-          karabiner.bundleIdentifiers.virtualMachine,
-          karabiner.bundleIdentifiers.vnc
-        ),
-      },
-    ],
+    to_delayed_action: {
+      to_if_canceled: [
+        { key_code: holdKeyCode, conditions: [{ type: 'expression_if', expression: oppositeHandDown }] },
+        { key_code: fromKeyCode, conditions: [{ type: 'expression_unless', expression: oppositeHandDown }] },
+      ],
+    },
+    to_after_key_up: [{ set_variable: { name: bilateralDownVariable(fromKeyCode), value: 0 } }],
+    parameters: {
+      'basic.to_if_alone_timeout_milliseconds': 300,
+      'basic.to_if_held_down_threshold_milliseconds': 150,
+      'basic.to_delayed_action_delay_milliseconds': 300,
+    },
+    conditions: BILATERAL_MODE_CONDITIONS,
   }
 }
 

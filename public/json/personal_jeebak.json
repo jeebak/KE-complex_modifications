@@ -3791,8 +3791,899 @@
       ]
     },
     {
-      "description": "Number Row Modifiers",
+      "description": "Home Row Modifiers (Bilateral Combinations)",
       "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "q",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "q"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_q_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_q_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "w",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "w"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_w_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_w_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "e",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "e"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_e_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_e_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "r",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "r"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_r_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_r_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "t",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "t"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_t_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_t_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "g",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "g"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_g_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_g_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "z",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "z"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_z_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_z_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "x",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "x"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_x_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_x_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "c",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_c_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_c_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "v",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "v"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_v_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_v_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "b",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "b"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_b_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_b_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
         {
           "type": "basic",
           "from": {
@@ -3803,20 +4694,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "1"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_option"
+              "set_variable": {
+                "name": "jb_hr_1_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_1_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -3879,20 +4775,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "2"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_option"
+              "set_variable": {
+                "name": "jb_hr_2_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_2_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -3955,20 +4856,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "3"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_option"
+              "set_variable": {
+                "name": "jb_hr_3_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_3_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -4031,20 +4937,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "4"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_command"
+              "set_variable": {
+                "name": "jb_hr_4_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_4_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -4107,20 +5018,916 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "5"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_command"
+              "set_variable": {
+                "name": "jb_hr_5_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_5_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "y",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
           },
+          "to": [
+            {
+              "key_code": "y"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_y_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_y_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "u",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "u"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_u_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_u_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "i",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "i"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_i_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_i_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "o",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "o"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_o_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_o_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "p",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "p"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_p_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_p_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "h",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "h"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_h_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_h_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "n",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "n"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_n_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_n_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "m",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "m"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_m_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_m_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "comma",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "comma"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_comma_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_comma_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "period",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "period"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_period_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_period_down",
+                "value": 0
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash"
+            },
+            {
+              "set_variable": {
+                "name": "jb_hr_slash_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_slash_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -4183,20 +5990,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "6"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_command"
+              "set_variable": {
+                "name": "jb_hr_6_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_6_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -4259,20 +6071,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "7"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_command"
+              "set_variable": {
+                "name": "jb_hr_7_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_7_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -4335,20 +6152,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "8"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_command"
+              "set_variable": {
+                "name": "jb_hr_8_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_8_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -4411,20 +6233,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "9"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_command"
+              "set_variable": {
+                "name": "jb_hr_9_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_9_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -4487,20 +6314,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "0"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_option"
+              "set_variable": {
+                "name": "jb_hr_0_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_0_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -4563,20 +6395,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "hyphen"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_option"
+              "set_variable": {
+                "name": "jb_hr_hyphen_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_hyphen_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -4639,20 +6476,25 @@
               ]
             }
           },
-          "to_if_alone": [
+          "to": [
             {
               "key_code": "equal_sign"
-            }
-          ],
-          "to_if_held_down": [
+            },
             {
-              "key_code": "left_option"
+              "set_variable": {
+                "name": "jb_hr_equal_sign_down",
+                "value": 1
+              }
             }
           ],
-          "parameters": {
-            "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
-          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_equal_sign_down",
+                "value": 0
+              }
+            }
+          ],
           "conditions": [
             {
               "type": "variable_unless",
@@ -4704,12 +6546,7 @@
               ]
             }
           ]
-        }
-      ]
-    },
-    {
-      "description": "Home Row Modifiers",
-      "manipulators": [
+        },
         {
           "type": "basic",
           "from": {
@@ -4720,6 +6557,14 @@
               ]
             }
           },
+          "to": [
+            {
+              "set_variable": {
+                "name": "jb_hr_semicolon_down",
+                "value": 1
+              }
+            }
+          ],
           "to_if_alone": [
             {
               "key_code": "semicolon"
@@ -4730,9 +6575,40 @@
               "key_code": "left_command"
             }
           ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "left_command",
+                "conditions": [
+                  {
+                    "type": "expression_if",
+                    "expression": "jb_hr_q_down+jb_hr_w_down+jb_hr_e_down+jb_hr_r_down+jb_hr_t_down+jb_hr_a_down+jb_hr_s_down+jb_hr_d_down+jb_hr_f_down+jb_hr_g_down+jb_hr_z_down+jb_hr_x_down+jb_hr_c_down+jb_hr_v_down+jb_hr_b_down+jb_hr_1_down+jb_hr_2_down+jb_hr_3_down+jb_hr_4_down+jb_hr_5_down > 0"
+                  }
+                ]
+              },
+              {
+                "key_code": "semicolon",
+                "conditions": [
+                  {
+                    "type": "expression_unless",
+                    "expression": "jb_hr_q_down+jb_hr_w_down+jb_hr_e_down+jb_hr_r_down+jb_hr_t_down+jb_hr_a_down+jb_hr_s_down+jb_hr_d_down+jb_hr_f_down+jb_hr_g_down+jb_hr_z_down+jb_hr_x_down+jb_hr_c_down+jb_hr_v_down+jb_hr_b_down+jb_hr_1_down+jb_hr_2_down+jb_hr_3_down+jb_hr_4_down+jb_hr_5_down > 0"
+                  }
+                ]
+              }
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_semicolon_down",
+                "value": 0
+              }
+            }
+          ],
           "parameters": {
             "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
+            "basic.to_if_held_down_threshold_milliseconds": 150,
+            "basic.to_delayed_action_delay_milliseconds": 300
           },
           "conditions": [
             {
@@ -4796,6 +6672,14 @@
               ]
             }
           },
+          "to": [
+            {
+              "set_variable": {
+                "name": "jb_hr_quote_down",
+                "value": 1
+              }
+            }
+          ],
           "to_if_alone": [
             {
               "key_code": "quote"
@@ -4806,9 +6690,845 @@
               "key_code": "left_option"
             }
           ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "left_option",
+                "conditions": [
+                  {
+                    "type": "expression_if",
+                    "expression": "jb_hr_q_down+jb_hr_w_down+jb_hr_e_down+jb_hr_r_down+jb_hr_t_down+jb_hr_a_down+jb_hr_s_down+jb_hr_d_down+jb_hr_f_down+jb_hr_g_down+jb_hr_z_down+jb_hr_x_down+jb_hr_c_down+jb_hr_v_down+jb_hr_b_down+jb_hr_1_down+jb_hr_2_down+jb_hr_3_down+jb_hr_4_down+jb_hr_5_down > 0"
+                  }
+                ]
+              },
+              {
+                "key_code": "quote",
+                "conditions": [
+                  {
+                    "type": "expression_unless",
+                    "expression": "jb_hr_q_down+jb_hr_w_down+jb_hr_e_down+jb_hr_r_down+jb_hr_t_down+jb_hr_a_down+jb_hr_s_down+jb_hr_d_down+jb_hr_f_down+jb_hr_g_down+jb_hr_z_down+jb_hr_x_down+jb_hr_c_down+jb_hr_v_down+jb_hr_b_down+jb_hr_1_down+jb_hr_2_down+jb_hr_3_down+jb_hr_4_down+jb_hr_5_down > 0"
+                  }
+                ]
+              }
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_quote_down",
+                "value": 0
+              }
+            }
+          ],
           "parameters": {
             "basic.to_if_alone_timeout_milliseconds": 300,
-            "basic.to_if_held_down_threshold_milliseconds": 150
+            "basic.to_if_held_down_threshold_milliseconds": 150,
+            "basic.to_delayed_action_delay_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "a",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "jb_hr_a_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "a"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "left_command",
+                "conditions": [
+                  {
+                    "type": "expression_if",
+                    "expression": "jb_hr_y_down+jb_hr_u_down+jb_hr_i_down+jb_hr_o_down+jb_hr_p_down+jb_hr_h_down+jb_hr_j_down+jb_hr_k_down+jb_hr_l_down+jb_hr_semicolon_down+jb_hr_quote_down+jb_hr_n_down+jb_hr_m_down+jb_hr_comma_down+jb_hr_period_down+jb_hr_slash_down+jb_hr_6_down+jb_hr_7_down+jb_hr_8_down+jb_hr_9_down+jb_hr_0_down+jb_hr_hyphen_down+jb_hr_equal_sign_down > 0"
+                  }
+                ]
+              },
+              {
+                "key_code": "a",
+                "conditions": [
+                  {
+                    "type": "expression_unless",
+                    "expression": "jb_hr_y_down+jb_hr_u_down+jb_hr_i_down+jb_hr_o_down+jb_hr_p_down+jb_hr_h_down+jb_hr_j_down+jb_hr_k_down+jb_hr_l_down+jb_hr_semicolon_down+jb_hr_quote_down+jb_hr_n_down+jb_hr_m_down+jb_hr_comma_down+jb_hr_period_down+jb_hr_slash_down+jb_hr_6_down+jb_hr_7_down+jb_hr_8_down+jb_hr_9_down+jb_hr_0_down+jb_hr_hyphen_down+jb_hr_equal_sign_down > 0"
+                  }
+                ]
+              }
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_a_down",
+                "value": 0
+              }
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 150,
+            "basic.to_delayed_action_delay_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "s",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "jb_hr_s_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "s"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "left_option",
+                "conditions": [
+                  {
+                    "type": "expression_if",
+                    "expression": "jb_hr_y_down+jb_hr_u_down+jb_hr_i_down+jb_hr_o_down+jb_hr_p_down+jb_hr_h_down+jb_hr_j_down+jb_hr_k_down+jb_hr_l_down+jb_hr_semicolon_down+jb_hr_quote_down+jb_hr_n_down+jb_hr_m_down+jb_hr_comma_down+jb_hr_period_down+jb_hr_slash_down+jb_hr_6_down+jb_hr_7_down+jb_hr_8_down+jb_hr_9_down+jb_hr_0_down+jb_hr_hyphen_down+jb_hr_equal_sign_down > 0"
+                  }
+                ]
+              },
+              {
+                "key_code": "s",
+                "conditions": [
+                  {
+                    "type": "expression_unless",
+                    "expression": "jb_hr_y_down+jb_hr_u_down+jb_hr_i_down+jb_hr_o_down+jb_hr_p_down+jb_hr_h_down+jb_hr_j_down+jb_hr_k_down+jb_hr_l_down+jb_hr_semicolon_down+jb_hr_quote_down+jb_hr_n_down+jb_hr_m_down+jb_hr_comma_down+jb_hr_period_down+jb_hr_slash_down+jb_hr_6_down+jb_hr_7_down+jb_hr_8_down+jb_hr_9_down+jb_hr_0_down+jb_hr_hyphen_down+jb_hr_equal_sign_down > 0"
+                  }
+                ]
+              }
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_s_down",
+                "value": 0
+              }
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 150,
+            "basic.to_delayed_action_delay_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "d",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "jb_hr_d_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "d"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "left_shift",
+                "conditions": [
+                  {
+                    "type": "expression_if",
+                    "expression": "jb_hr_y_down+jb_hr_u_down+jb_hr_i_down+jb_hr_o_down+jb_hr_p_down+jb_hr_h_down+jb_hr_j_down+jb_hr_k_down+jb_hr_l_down+jb_hr_semicolon_down+jb_hr_quote_down+jb_hr_n_down+jb_hr_m_down+jb_hr_comma_down+jb_hr_period_down+jb_hr_slash_down+jb_hr_6_down+jb_hr_7_down+jb_hr_8_down+jb_hr_9_down+jb_hr_0_down+jb_hr_hyphen_down+jb_hr_equal_sign_down > 0"
+                  }
+                ]
+              },
+              {
+                "key_code": "d",
+                "conditions": [
+                  {
+                    "type": "expression_unless",
+                    "expression": "jb_hr_y_down+jb_hr_u_down+jb_hr_i_down+jb_hr_o_down+jb_hr_p_down+jb_hr_h_down+jb_hr_j_down+jb_hr_k_down+jb_hr_l_down+jb_hr_semicolon_down+jb_hr_quote_down+jb_hr_n_down+jb_hr_m_down+jb_hr_comma_down+jb_hr_period_down+jb_hr_slash_down+jb_hr_6_down+jb_hr_7_down+jb_hr_8_down+jb_hr_9_down+jb_hr_0_down+jb_hr_hyphen_down+jb_hr_equal_sign_down > 0"
+                  }
+                ]
+              }
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_d_down",
+                "value": 0
+              }
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 150,
+            "basic.to_delayed_action_delay_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "f",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "jb_hr_f_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "f"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "left_control",
+                "conditions": [
+                  {
+                    "type": "expression_if",
+                    "expression": "jb_hr_y_down+jb_hr_u_down+jb_hr_i_down+jb_hr_o_down+jb_hr_p_down+jb_hr_h_down+jb_hr_j_down+jb_hr_k_down+jb_hr_l_down+jb_hr_semicolon_down+jb_hr_quote_down+jb_hr_n_down+jb_hr_m_down+jb_hr_comma_down+jb_hr_period_down+jb_hr_slash_down+jb_hr_6_down+jb_hr_7_down+jb_hr_8_down+jb_hr_9_down+jb_hr_0_down+jb_hr_hyphen_down+jb_hr_equal_sign_down > 0"
+                  }
+                ]
+              },
+              {
+                "key_code": "f",
+                "conditions": [
+                  {
+                    "type": "expression_unless",
+                    "expression": "jb_hr_y_down+jb_hr_u_down+jb_hr_i_down+jb_hr_o_down+jb_hr_p_down+jb_hr_h_down+jb_hr_j_down+jb_hr_k_down+jb_hr_l_down+jb_hr_semicolon_down+jb_hr_quote_down+jb_hr_n_down+jb_hr_m_down+jb_hr_comma_down+jb_hr_period_down+jb_hr_slash_down+jb_hr_6_down+jb_hr_7_down+jb_hr_8_down+jb_hr_9_down+jb_hr_0_down+jb_hr_hyphen_down+jb_hr_equal_sign_down > 0"
+                  }
+                ]
+              }
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_f_down",
+                "value": 0
+              }
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 150,
+            "basic.to_delayed_action_delay_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "j",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "jb_hr_j_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "j"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "left_control",
+                "conditions": [
+                  {
+                    "type": "expression_if",
+                    "expression": "jb_hr_q_down+jb_hr_w_down+jb_hr_e_down+jb_hr_r_down+jb_hr_t_down+jb_hr_a_down+jb_hr_s_down+jb_hr_d_down+jb_hr_f_down+jb_hr_g_down+jb_hr_z_down+jb_hr_x_down+jb_hr_c_down+jb_hr_v_down+jb_hr_b_down+jb_hr_1_down+jb_hr_2_down+jb_hr_3_down+jb_hr_4_down+jb_hr_5_down > 0"
+                  }
+                ]
+              },
+              {
+                "key_code": "j",
+                "conditions": [
+                  {
+                    "type": "expression_unless",
+                    "expression": "jb_hr_q_down+jb_hr_w_down+jb_hr_e_down+jb_hr_r_down+jb_hr_t_down+jb_hr_a_down+jb_hr_s_down+jb_hr_d_down+jb_hr_f_down+jb_hr_g_down+jb_hr_z_down+jb_hr_x_down+jb_hr_c_down+jb_hr_v_down+jb_hr_b_down+jb_hr_1_down+jb_hr_2_down+jb_hr_3_down+jb_hr_4_down+jb_hr_5_down > 0"
+                  }
+                ]
+              }
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_j_down",
+                "value": 0
+              }
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 150,
+            "basic.to_delayed_action_delay_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "k",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "jb_hr_k_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "k"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_shift"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "left_shift",
+                "conditions": [
+                  {
+                    "type": "expression_if",
+                    "expression": "jb_hr_q_down+jb_hr_w_down+jb_hr_e_down+jb_hr_r_down+jb_hr_t_down+jb_hr_a_down+jb_hr_s_down+jb_hr_d_down+jb_hr_f_down+jb_hr_g_down+jb_hr_z_down+jb_hr_x_down+jb_hr_c_down+jb_hr_v_down+jb_hr_b_down+jb_hr_1_down+jb_hr_2_down+jb_hr_3_down+jb_hr_4_down+jb_hr_5_down > 0"
+                  }
+                ]
+              },
+              {
+                "key_code": "k",
+                "conditions": [
+                  {
+                    "type": "expression_unless",
+                    "expression": "jb_hr_q_down+jb_hr_w_down+jb_hr_e_down+jb_hr_r_down+jb_hr_t_down+jb_hr_a_down+jb_hr_s_down+jb_hr_d_down+jb_hr_f_down+jb_hr_g_down+jb_hr_z_down+jb_hr_x_down+jb_hr_c_down+jb_hr_v_down+jb_hr_b_down+jb_hr_1_down+jb_hr_2_down+jb_hr_3_down+jb_hr_4_down+jb_hr_5_down > 0"
+                  }
+                ]
+              }
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_k_down",
+                "value": 0
+              }
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 150,
+            "basic.to_delayed_action_delay_milliseconds": 300
+          },
+          "conditions": [
+            {
+              "type": "variable_unless",
+              "name": "jb_touchcursor_extended_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_tab_mode",
+              "value": 1
+            },
+            {
+              "type": "variable_unless",
+              "name": "jb_mousecursor_mode",
+              "value": 1
+            },
+            {
+              "type": "frontmost_application_unless",
+              "bundle_identifiers": [
+                "^com\\.microsoft\\.rdc$",
+                "^com\\.microsoft\\.rdc\\.",
+                "^net\\.sf\\.cord$",
+                "^com\\.thinomenon\\.RemoteDesktopConnection$",
+                "^com\\.itap-mobile\\.qmote$",
+                "^com\\.nulana\\.remotixmac$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer$",
+                "^com\\.p5sys\\.jump\\.mac\\.viewer\\.",
+                "^com\\.teamviewer\\.TeamViewer$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.2X\\.Client\\.Mac$",
+                "^com\\.OpenText\\.Exceed-TurboX-Client$",
+                "^com\\.realvnc\\.vncviewer$",
+                "^com\\.citrix\\.receiver\\.icaviewer",
+                "^com\\.vmware\\.fusion$",
+                "^com\\.vmware\\.horizon$",
+                "^com\\.vmware\\.view$",
+                "^com\\.parallels\\.desktop$",
+                "^com\\.parallels\\.vm$",
+                "^com\\.parallels\\.desktop\\.console$",
+                "^org\\.virtualbox\\.app\\.VirtualBoxVM$",
+                "^com\\.citrix\\.XenAppViewer$",
+                "^com\\.vmware\\.proxyApp\\.",
+                "^com\\.parallels\\.winapp\\.",
+                "^com\\.utmapp\\.UTM$",
+                "^com\\.geekspiff\\.chickenofthevnc$",
+                "^net\\.sourceforge\\.chicken$",
+                "^de\\.jinx\\.JollysFastVNC\\.",
+                "^com\\.realvnc\\.vncviewer\\."
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "l",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "set_variable": {
+                "name": "jb_hr_l_down",
+                "value": 1
+              }
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "l"
+            }
+          ],
+          "to_if_held_down": [
+            {
+              "key_code": "left_option"
+            }
+          ],
+          "to_delayed_action": {
+            "to_if_canceled": [
+              {
+                "key_code": "left_option",
+                "conditions": [
+                  {
+                    "type": "expression_if",
+                    "expression": "jb_hr_q_down+jb_hr_w_down+jb_hr_e_down+jb_hr_r_down+jb_hr_t_down+jb_hr_a_down+jb_hr_s_down+jb_hr_d_down+jb_hr_f_down+jb_hr_g_down+jb_hr_z_down+jb_hr_x_down+jb_hr_c_down+jb_hr_v_down+jb_hr_b_down+jb_hr_1_down+jb_hr_2_down+jb_hr_3_down+jb_hr_4_down+jb_hr_5_down > 0"
+                  }
+                ]
+              },
+              {
+                "key_code": "l",
+                "conditions": [
+                  {
+                    "type": "expression_unless",
+                    "expression": "jb_hr_q_down+jb_hr_w_down+jb_hr_e_down+jb_hr_r_down+jb_hr_t_down+jb_hr_a_down+jb_hr_s_down+jb_hr_d_down+jb_hr_f_down+jb_hr_g_down+jb_hr_z_down+jb_hr_x_down+jb_hr_c_down+jb_hr_v_down+jb_hr_b_down+jb_hr_1_down+jb_hr_2_down+jb_hr_3_down+jb_hr_4_down+jb_hr_5_down > 0"
+                  }
+                ]
+              }
+            ]
+          },
+          "to_after_key_up": [
+            {
+              "set_variable": {
+                "name": "jb_hr_l_down",
+                "value": 0
+              }
+            }
+          ],
+          "parameters": {
+            "basic.to_if_alone_timeout_milliseconds": 300,
+            "basic.to_if_held_down_threshold_milliseconds": 150,
+            "basic.to_delayed_action_delay_milliseconds": 300
           },
           "conditions": [
             {
