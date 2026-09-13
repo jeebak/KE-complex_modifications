@@ -16,7 +16,7 @@ const MOUSECURSOR_SPEED_FINE = 0.3
 
 const TAP_HOLD_PARAMETERS = {
   'basic.to_if_alone_timeout_milliseconds': 300,
-  'basic.to_if_held_down_threshold_milliseconds': 150,
+  'basic.to_if_held_down_threshold_milliseconds': 0,
 }
 
 function main() {
