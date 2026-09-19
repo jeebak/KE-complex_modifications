@@ -433,18 +433,31 @@ function main() {
             manipulators: [
               //
               // Number row when tapped, and {1,2,3,0,-,=} to ⌥, and {4,5,6,7,8,9} to ⌘, when held
+              // ⇧-<key> bypasses the tap-hold delay -- see numberRowShiftBypass()
               //
+              numberRowShiftBypass('1'),
               tapHold('1', 'left_option'),
+              numberRowShiftBypass('2'),
               tapHold('2', 'left_option'),
+              numberRowShiftBypass('3'),
               tapHold('3', 'left_option'),
+              numberRowShiftBypass('4'),
               tapHold('4', 'left_command'),
+              numberRowShiftBypass('5'),
               tapHold('5', 'left_command'),
+              numberRowShiftBypass('6'),
               tapHold('6', 'left_command'),
+              numberRowShiftBypass('7'),
               tapHold('7', 'left_command'),
+              numberRowShiftBypass('8'),
               tapHold('8', 'left_command'),
+              numberRowShiftBypass('9'),
               tapHold('9', 'left_command'),
+              numberRowShiftBypass('0'),
               tapHold('0', 'left_option'),
+              numberRowShiftBypass('hyphen'),
               tapHold('hyphen', 'left_option'),
+              numberRowShiftBypass('equal_sign'),
               tapHold('equal_sign', 'left_option'),
             ],
           },
@@ -541,6 +554,22 @@ function mouseCursorCmdKeyAndExit(fromKeyCode) {
 //
 // Number Row Modifiers / Home Row Modifiers helper
 //
+function tapHoldGatingConditions() {
+  return [
+    { type: 'variable_unless', name: 'jb_touchcursor_extended_mode', value: 1 },
+    { type: 'variable_unless', name: 'jb_tab_mode', value: 1 },
+    { type: 'variable_unless', name: 'jb_mousecursor_mode', value: 1 },
+    {
+      type: 'frontmost_application_unless',
+      bundle_identifiers: [].concat(
+        karabiner.bundleIdentifiers.remoteDesktop,
+        karabiner.bundleIdentifiers.virtualMachine,
+        karabiner.bundleIdentifiers.vnc
+      ),
+    },
+  ]
+}
+
 function tapHold(fromKeyCode, holdKeyCode) {
   return {
     type: 'basic',
@@ -548,19 +577,19 @@ function tapHold(fromKeyCode, holdKeyCode) {
     to_if_alone: [{ key_code: fromKeyCode }],
     to_if_held_down: [{ key_code: holdKeyCode }],
     parameters: TAP_HOLD_PARAMETERS,
-    conditions: [
-      { type: 'variable_unless', name: 'jb_touchcursor_extended_mode', value: 1 },
-      { type: 'variable_unless', name: 'jb_tab_mode', value: 1 },
-      { type: 'variable_unless', name: 'jb_mousecursor_mode', value: 1 },
-      {
-        type: 'frontmost_application_unless',
-        bundle_identifiers: [].concat(
-          karabiner.bundleIdentifiers.remoteDesktop,
-          karabiner.bundleIdentifiers.virtualMachine,
-          karabiner.bundleIdentifiers.vnc
-        ),
-      },
-    ],
+    conditions: tapHoldGatingConditions(),
+  }
+}
+
+//
+// Number Row Modifiers helper: ⇧-<number row key> bypass (skips the tap-hold delay)
+//
+function numberRowShiftBypass(fromKeyCode) {
+  return {
+    type: 'basic',
+    from: { key_code: fromKeyCode, modifiers: { mandatory: ['shift'], optional: ['any'] } },
+    to: [{ key_code: fromKeyCode, modifiers: ['shift'] }], // re-add shift: mandatory `from` modifiers are masked out of `to`
+    conditions: tapHoldGatingConditions(),
   }
 }
 
