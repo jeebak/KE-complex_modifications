@@ -19,6 +19,14 @@ const TAP_HOLD_PARAMETERS = {
   'basic.to_if_held_down_threshold_milliseconds': 0,
 }
 
+// 0ms above lets Number Row chord instantly, but on Home Row (typed constantly
+// in prose) it eats fast rollover typing, e.g. "let's" -> "let"; to_delayed_action
+// needs a real window to tell a roll from a hold, hence the non-zero delay here.
+const HOME_ROW_TAP_HOLD_PARAMETERS = {
+  'basic.to_delayed_action_delay_milliseconds': 200,
+  'basic.to_if_held_down_threshold_milliseconds': 200,
+}
+
 function main() {
   console.log(
     JSON.stringify(
@@ -467,8 +475,8 @@ function main() {
               //
               // Right Hand Pinky ⌘ and ⌥<; Tap for ;, hold for ⌘. Tap for ', hold for ⌥
               //
-              tapHold('semicolon', 'left_command'),
-              tapHold('quote', 'left_option'),
+              tapHoldDelayed('semicolon', 'left_command'),
+              tapHoldDelayed('quote', 'left_option'),
             ],
           },
           {
@@ -577,6 +585,24 @@ function tapHold(fromKeyCode, holdKeyCode) {
     to_if_alone: [{ key_code: fromKeyCode }],
     to_if_held_down: [{ key_code: holdKeyCode }],
     parameters: TAP_HOLD_PARAMETERS,
+    conditions: tapHoldGatingConditions(),
+  }
+}
+
+//
+// Home Row Modifiers helper: to_delayed_action variant of tapHold(), per
+// https://karabiner-elements.pqrs.org/docs/json/complex-modifications-manipulator-definition/to-if-held-down/'s
+// "more advanced example" -- a key pressed during the delay cancels the hold
+// and emits the tap, instead of tapHold()'s any-key-during-hold wins.
+//
+function tapHoldDelayed(fromKeyCode, holdKeyCode) {
+  return {
+    type: 'basic',
+    from: { key_code: fromKeyCode, modifiers: { optional: ['any'] } },
+    to_if_alone: [{ key_code: fromKeyCode, halt: true }],
+    to_if_held_down: [{ key_code: holdKeyCode }],
+    to_delayed_action: { to_if_canceled: [{ key_code: fromKeyCode }] },
+    parameters: HOME_ROW_TAP_HOLD_PARAMETERS,
     conditions: tapHoldGatingConditions(),
   }
 }
