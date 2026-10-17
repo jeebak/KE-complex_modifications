@@ -1359,10 +1359,7 @@
           },
           "to": [
             {
-              "key_code": "slash",
-              "modifiers": [
-                "left_command"
-              ]
+              "shell_command": "~/.local/bin/toggle-hotkey-terminal.bash"
             }
           ],
           "conditions": [

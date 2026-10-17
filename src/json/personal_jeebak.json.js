@@ -202,7 +202,7 @@ function main() {
               // Misc Personalizations {;,',/}
               // Space-; to ⌃-←; [custom shortcut to: Move left a space]
               // Space-' to ⌃-→' [custom shortcut to: Move right a space]
-              // Space-/ to ⌘-/ [custom shortcut to: Toggle Show/Hide terminal app windows]
+              // Space-/ to toggle the hotkey terminal, a dedicated Ghostty instance [~/.local/bin/toggle-hotkey-terminal.bash]
               // Space-right_shift to ⌃-↓ [custom shortcut to: Application windows]
               //
               touchCursorKey('semicolon', [{ key_code: 'left_arrow', modifiers: ['left_control'] }], {
@@ -211,7 +211,7 @@ function main() {
               touchCursorKey('quote', [{ key_code: 'right_arrow', modifiers: ['left_control'] }], {
                 modifiers: { optional: ['caps_lock'] },
               }),
-              touchCursorKey('slash', [{ key_code: 'slash', modifiers: ['left_command'] }], {
+              touchCursorKey('slash', [{ shell_command: '~/.local/bin/toggle-hotkey-terminal.bash' }], {
                 modifiers: { optional: ['caps_lock'] },
               }),
               touchCursorKey('right_shift', [{ key_code: 'down_arrow', modifiers: ['left_control'] }], {
